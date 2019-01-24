@@ -1,26 +1,65 @@
+/* these properties apply to all card styles */
 .card {
 	margin-bottom: 2rem;
 	margin-top: 1rem;
-	border: none !important;
 	-webkit-box-shadow: 0px 5px 10px 2px rgba(55,55,55,0.5);
 	-moz-box-shadow: 0px 5px 10px 2px rgba(55,55,55,0.5);
 	box-shadow: 0px 5px 10px 2px rgba(55,55,55,0.5);
-	background-color: #E8E9F3;
-	color: #272635;
+	color: #666568;
+}
+
+.card>.columns {
+	margin: 0;
+	padding: 0;
+}
+
+.card>.columns>.column {
+	margin: 0;
+	padding: 0;
+}
+
+.card h1 {
+	color: #666568;
+}
+
+.card button {
+	padding: 1rem 3rem 2rem 3rem;
+	text-transform: uppercase;
+	border-color: #666568;
+	color: #666568;
+}
+
+.card button.btn:hover,
+.card button.btn:focus {
+	background-color: #F1F1FC;
+	border-color: #666568;
+}
+
+.card button.btn:active {
+	background-color: #666568; 
+	border-color: #F1F1F1;
+	color: #F1F1F1;
 }
 
 .card .card-footer button {
-	margin-top: -1rem;
-	padding: 1rem 3rem 2rem 3rem;
-	border-radius: 0;
-	text-transform: uppercase;
-	font-family: "Trajan Pro", Trajan, "Trajan Pro 3", serif;	
+	margin-top: -0.5rem;
+	
 }
 
 .card .card-body button {
 	margin-top: 2rem;
-	padding: 1rem 3rem 2rem 3rem;
-	border-radius: 0;
-	text-transform: uppercase;
-	font-family: "Trajan Pro", Trajan, "Trajan Pro 3", serif;	
+}
+
+/* these properties apply to img-left && img-right style */
+.card.img-left .card-footer button,
+.card.img-right .card-footer button {
+	padding: 0.5rem 1rem 0.5rem 1rem;
+	height: auto;
+	white-space: normal;
+}
+
+.card.img-left>.columns>.column,
+.card.img-right>.columns>.column {
+	display: flex;
+	flex-direction: column;
 }
