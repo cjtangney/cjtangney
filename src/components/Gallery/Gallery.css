@@ -1,21 +1,19 @@
 #gallery-container{
-	max-height: 10rem;
+	margin-bottom: 1rem;
 }
-
 #gallery-nav{
 	flex-wrap: nowrap;
 	max-width: 100%;
-	overflow-x: auto;
+	overflow-x: scroll;
 	margin: 0;
 }
-
 .gallery-button{
 	display: inline;
 	padding: 0;
 }
-
 .gallery-button img{
 	width: 100%;
 	height: auto;
 	cursor: pointer;
 }
+

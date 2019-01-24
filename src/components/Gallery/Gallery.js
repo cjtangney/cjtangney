@@ -31,8 +31,8 @@ class Gallery extends React.Component{
 			<div className={classes} id='gallery-container'>
 				<img src={this.state.imgs[0]} alt='Alternate text' className='img-responsive' id='gallery-img' />
 				<div className='columns' id='gallery-nav'>
-					{this.state.imgs.map(img=>
-						<div className='column col-3 gallery-button'>
+					{this.state.imgs.map((img,i)=>
+						<div className='column col-3 gallery-button' key={'gallery-button-' + i}>
 							<img src={img} alt='Alternate text' onClick={ event => this.zoomImg(event) } />
 						</div>
 					)}
