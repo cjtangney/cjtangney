@@ -11,16 +11,16 @@
 		default card component will display contents from the top down: header -> image -> body -> footer;
 		pass additional class through the classes prop to modify the layout: {
 			1-column layout: {
-		  	img-top: {
-		  		image -> header -> body -> footer;
-		  	}
+				img-top: {
+					image -> header -> body -> footer;
+				}
 			}
 			2-column layouts: {
-		    img-left: {
+				img-left: {
 					left: 100% height image;
 					right: header -> body -> footer;
 				}
-		    img-right: {
+				img-right: {
 					left: header -> body -> footer;
 					right: 100% height image;
 				}

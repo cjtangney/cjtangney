@@ -4,6 +4,7 @@
 import React from 'react';
 
 import { Card } from '../../components/Cards/Cards';
+import { Gallery } from '../../components/Gallery/Gallery';
 
 import './Home.css';
 
@@ -30,6 +31,15 @@ class Home extends React.Component {
             }
           />
         </div>
+        <Gallery
+          classes='column col-xs-12 col-sm-10 col-md-8 col-lg-7 col-7 col-mx-auto' 
+          imgs={
+            ['/img/p-01.jpg', '/img/p-02.jpg',
+            '/img/p-03.jpg', '/img/p-04.jpg',
+            '/img/p-05.jpg', '/img/k-01.jpg',
+            '/img/k-02.jpg', '/img/k-03.jpg',
+            '/img/k-04.jpg', '/img/k-05.jpg']} 
+        />
       </div>
     );
   }
