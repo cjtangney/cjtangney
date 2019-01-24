@@ -136,6 +136,7 @@ const Card = (props) => {
 /* prop info
 */
 Card.propTypes = {
+	classes: propTypes.string,
 	cardHeader: propTypes.oneOfType([propTypes.string, propTypes.object]),
 	cardBody: propTypes.oneOfType([propTypes.string, propTypes.object]),
 	cardFooter: propTypes.oneOfType([propTypes.string, propTypes.object]),

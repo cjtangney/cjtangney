@@ -1,6 +1,16 @@
+/* component info
+
+	modal: {
+		a basic modal component;
+	}
+
+	usage: {
+		
+	}
+*/
+
 import React from 'react';
 import propTypes from 'prop-types';
-//import './Modal.css';
 
 const Modal = (props) => {
 	const closeModal = (e) => {
@@ -27,5 +37,15 @@ const Modal = (props) => {
 		</div>
 	)
 }
+
+/* prop info
+*/
+Modal.propTypes = {
+	id: propTypes.string,
+	modalTitle: propTypes.string,
+	modalContent: propTypes.oneOfType([propTypes.string, propTypes.object]),
+	modalFooter: propTypes.oneOfType([propTypes.string, propTypes.object])
+}
+
 
 export { Modal }

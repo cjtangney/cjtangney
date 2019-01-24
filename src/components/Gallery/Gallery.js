@@ -1,3 +1,14 @@
+/* component info
+
+	gallery: {
+		a gallery component;
+	}
+
+	usage: {
+		
+	}
+*/
+
 import React from 'react';
 import propTypes from 'prop-types';
 import './Gallery.css';
@@ -40,6 +51,13 @@ class Gallery extends React.Component{
       </div>
 		)
 	}
+}
+
+/* prop info
+*/
+Gallery.propTypes = {
+	classes: propTypes.string,
+	imgs: propTypes.arrayOf(propTypes.string),
 }
 
 export { Gallery };
