@@ -32,6 +32,7 @@ class Home extends React.Component {
         </div>
         <Modal 
           id='gallery-modal'
+          classes='modal-lg'
           modalTitle='Puppies and Kittens!'
           modalContent={
             <Gallery

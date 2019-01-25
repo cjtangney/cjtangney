@@ -5,7 +5,8 @@
 	}
 
 	usage: {
-		
+		closure function is self-contained: closeModal();
+		an id prop must be provided to enable closure;
 	}
 */
 
@@ -17,8 +18,11 @@ const Modal = (props) => {
     e.preventDefault();
     document.getElementById(props.id).classList.remove('active');
   }
+  let classes = '';
+  if(props.classes){classes = 'modal ' + props.classes}
+  else{classes = 'modal'}
 	return(
-		<div className='modal' id={props.id}>
+		<div className={classes} id={props.id}>
 		  <a href='#close' className='modal-overlay' aria-label='Close' id='modal-overlay' onClick={ event => closeModal(event) }></a>
 		  <div className='modal-container'>
 		    <div className='modal-header'>
@@ -41,7 +45,8 @@ const Modal = (props) => {
 /* prop info
 */
 Modal.propTypes = {
-	id: propTypes.string,
+	classes: propTypes.string,
+	id: propTypes.string.isRequired,
 	modalTitle: propTypes.string,
 	modalContent: propTypes.oneOfType([propTypes.string, propTypes.object]),
 	modalFooter: propTypes.oneOfType([propTypes.string, propTypes.object])
