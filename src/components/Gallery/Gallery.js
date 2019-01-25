@@ -2,10 +2,16 @@
 
 	gallery: {
 		a gallery component;
+		information stored in component state;
 	}
 
 	usage: {
-		
+		state: {
+			imgs: an array of URLs to image resources for use with the gallery;
+			activeImg: img array index of the current resource being displayed;
+		}
+		an img array must be passed into the component;
+		the component accepts additional classes via the class prop;
 	}
 */
 
@@ -57,7 +63,7 @@ class Gallery extends React.Component{
 */
 Gallery.propTypes = {
 	classes: propTypes.string,
-	imgs: propTypes.arrayOf(propTypes.string),
+	imgs: propTypes.arrayOf(propTypes.string).isRequired,
 }
 
 export { Gallery };
