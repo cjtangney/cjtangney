@@ -12,11 +12,13 @@
 
 import React from 'react';
 import propTypes from 'prop-types';
+import './Modal.css';
 
 const Modal = (props) => {
 	const closeModal = (e) => {
     e.preventDefault();
     document.getElementById(props.id).classList.remove('active');
+    document.body.classList.remove('prevent-scroll');
   }
   let classes = '';
   if(props.classes){classes = 'modal ' + props.classes}

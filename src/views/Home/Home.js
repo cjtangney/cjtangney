@@ -26,13 +26,16 @@ class Home extends React.Component {
               </div>
             } 
             cardFooter={
-              <button className='btn puppies-and-kittens' onClick={ event => document.getElementById('gallery-modal').classList.add('active') }>Heck yea, baby animals!</button>
+              <button className='btn puppies-and-kittens' onClick={ event => {
+              	document.getElementById('gallery-modal').classList.add('active');
+              	document.body.classList.add('prevent-scroll');
+              }}>Heck yea, baby animals!</button>
             }
           />
         </div>
         <Modal 
           id='gallery-modal'
-          classes='modal-lg'
+          classes=''
           modalTitle='Puppies and Kittens!'
           modalContent={
             <Gallery

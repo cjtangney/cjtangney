@@ -1,6 +1,9 @@
 html, body{
 	height: 100%;
 }
+.prevent-scroll{
+  overflow: hidden;
+}
 ::-webkit-scrollbar {
   width: 9px;
   height: 9px;
