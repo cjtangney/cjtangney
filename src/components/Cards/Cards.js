@@ -34,6 +34,10 @@
 			}
 		}
 	}
+
+	future-additions: {
+		for img-left and img-right, add an img-narrow modifier to swap the columns;
+	}
 */
 
 import React from 'react';

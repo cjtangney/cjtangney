@@ -13,6 +13,7 @@
 	-moz-box-shadow: 0px 5px 10px 2px rgba(55,55,55,0.5);
 	box-shadow: 0px 5px 10px 2px rgba(55,55,55,0.5);
 	color: #666568;
+	border: none;
 }
 
 .card>.columns {
@@ -57,6 +58,24 @@
 }
 
 /* these properties apply to img-left && img-right style */
+.card.img-left .card-img,
+.card.img-right .card-img {
+	height: 100%;
+}
+
+.card.img-left .card-img img, 
+.card.img-right .card-img img {
+  object-fit: cover;
+  min-height: 100%;
+  bottom: 0;
+}
+
+.card.img-left .card-body,
+.card.img-right .card-body {
+	display: flex;
+	align-items: center;
+}
+
 .card.img-left .card-footer button,
 .card.img-right .card-footer button {
 	padding: 0.5rem 1rem 0.5rem 1rem;
@@ -93,7 +112,7 @@
   bottom: 0;
 }
 
-/* these properties apply to full-page img-left and img-rigth styles */
+/* these properties apply to full-page img-left and img-right styles */
 
 .card.full-page.img-left .card-img,
 .card.full-page.img-right .card-img {
