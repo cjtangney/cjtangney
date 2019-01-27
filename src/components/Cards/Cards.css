@@ -1,3 +1,10 @@
+/* these properties apply to specific elements */
+#card-container{
+	display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
 /* these properties apply to all card styles */
 .card {
 	margin-bottom: 2rem;
@@ -42,8 +49,7 @@
 }
 
 .card .card-footer button {
-	margin-top: -0.5rem;
-	
+	margin-top: -0.5rem;	
 }
 
 .card .card-body button {
@@ -62,4 +68,44 @@
 .card.img-right>.columns>.column {
 	display: flex;
 	flex-direction: column;
+}
+
+/* these properties apply to all full-page styles */
+.card.full-page {
+	height: 100vh;
+	width: 100vw;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+/* these properties apply to full-page img-top style */
+
+.card.full-page.img-top .card-img {
+	height: 70vh;
+	overflow: hidden;
+	position: relative;
+}
+
+.card.full-page.img-top .card-img img {
+	position: absolute;
+  object-fit: cover;
+  min-height: 100%;
+  bottom: 0;
+}
+
+/* these properties apply to full-page img-left and img-rigth styles */
+
+.card.full-page.img-left .card-img,
+.card.full-page.img-right .card-img {
+	height: 100vh;
+	overflow: hidden;
+	position: relative;
+}
+
+.card.full-page.img-left .card-img img,
+.card.full-page.img-right .card-img img {
+	position: absolute;
+  object-fit: cover;
+  min-height: 100%;
+  bottom: 0;
 }

@@ -10,6 +10,13 @@
 		card contents stored in array;
 		default card component will display contents from the top down: header -> image -> body -> footer;
 		pass additional class through the classes prop to modify the layout: {
+			full page card: {
+				full-page: {
+					expands card to fit will size of the viewport;
+					works best outside of a container with padding / margins;
+					can be combined with alternate layouts;
+				}
+			}
 			1-column layout: {
 				img-top: {
 					image -> header -> body -> footer;
@@ -62,11 +69,15 @@ const Card = (props) => {
 			</div>
 		)
 	}
-	const getCard = () => {
-		let content = [];
+	const getClasses = () => {
 		let classes = '';
 		if(props.classes){classes = 'card ' + props.classes;}
 		else{classes = 'card';}
+		return classes;
+	}
+	const getCard = () => {
+		let content = [];
+		let classes = getClasses();
 
 		//store card contents
 		if(props.cardHeader)content.push(getHeader());
@@ -88,14 +99,12 @@ const Card = (props) => {
 			content = content.filter(item => item.key !== 'card-img');
 
 			return(
-				<div className={classes}>
-					<div className='columns'>
-						<div className='column col-md-12 col-lg-7 col-8'>
-							{imgContent}
-						</div>
-						<div className='column col-md-12 col-lg-5 col-4'>
-							{content}
-						</div>
+				<div className='columns'>
+					<div className='column col-md-12 col-lg-7 col-8'>
+						{imgContent}
+					</div>
+					<div className='column col-md-12 col-lg-5 col-4'>
+						{content}
 					</div>
 				</div>
 			)
@@ -107,29 +116,27 @@ const Card = (props) => {
 			content = content.filter(item => item.key !== 'card-img');
 
 			return(
-				<div className={classes}>
-					<div className='columns'>
-						<div className='column col-md-12 col-lg-5 col-4'>
-							{content}
-						</div>
-						<div className='column col-md-12 col-lg-7 col-8'>
-							{imgContent}
-						</div>
+				<div className='columns'>
+					<div className='column col-md-12 col-lg-5 col-4'>
+						{content}
+					</div>
+					<div className='column col-md-12 col-lg-7 col-8'>
+						{imgContent}
 					</div>
 				</div>
 			)
 		}
 
 		return(
-			<div className={classes}>
-				{content}
-			</div>
+			content
 		);
 	}
 
 	return (
 		/* CARD */
-		getCard()
+		<div className={getClasses()}>
+			{getCard()}
+		</div>
 	);
 }
 
