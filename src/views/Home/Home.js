@@ -34,11 +34,11 @@ class Home extends React.Component {
       	/>
       <Modal 
         id='gallery-modal'
-        classes=''
+        classes='full-page'
         modalTitle='Puppies and Kittens!'
         modalContent={
           <Gallery
-            classes='column col-xs-12 col-12 col-mx-auto' 
+            classes='column col-lg-12 col-xl-10 col-7 col-mx-auto' 
             imgs={
               [PUBLIC + '/img/p-01.jpg', PUBLIC + '/img/p-02.jpg',
               PUBLIC + '/img/p-03.jpg', PUBLIC + '/img/p-04.jpg',
