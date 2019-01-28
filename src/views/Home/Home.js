@@ -2,7 +2,7 @@
 */
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import { Card } from '../../components/Cards/Cards';
 //import { Modal } from '../../components/Modal/Modal';
 //import { Gallery } from '../../components/Gallery/Gallery';
@@ -27,9 +27,8 @@ class Home extends React.Component {
               <div className='btn-group'>
               	<button className='btn'>Resume</button>
               	<button className='btn'>My Work</button>
-              	<Link to='/blog'>
-              		<button className='btn'>Blog</button>
-              	</Link>
+                <button className='btn'>About this site</button>
+            		<button className='btn'>About Me</button>
               </div>
             </div>
           }
