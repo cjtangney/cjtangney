@@ -4,11 +4,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card } from '../../components/Cards/Cards';
-//import { Modal } from '../../components/Modal/Modal';
-//import { Gallery } from '../../components/Gallery/Gallery';
+import { ScrollToTop } from '../../components/ScrollToTop/ScrollToTop';
 import './Resume.css';
-
-//const PUBLIC = process.env.PUBLIC_URL;
 
 class Resume extends React.Component {
   constructor(props){
@@ -22,9 +19,11 @@ class Resume extends React.Component {
     this.detectWrap();
     window.addEventListener('resize', this.detectWrap);
   }
+  //get the resume data from json file
   parseData = () => {
     return(JSON.parse(JSON.stringify(require('./data.json'))));
   }
+  //specifically watches for line breaks in divs with the skills-container class
   detectWrap = (event) => {  
     let containers = document.getElementsByClassName('skills-container');
     let wrappedItems = [];
@@ -46,7 +45,7 @@ class Resume extends React.Component {
   }
   render() {
     return (
-      <div className='card-container'>
+      <div id='card-container'>
         <Card 
           id='resume-header'
           classes='text-center'
@@ -57,9 +56,7 @@ class Resume extends React.Component {
             </div>
           }
           cardFooter={
-            <Link to='/'>
-              <button className='btn'>Take me home!</button>
-            </Link>
+            <Link to='/' className='btn'>Take me home!</Link>
           }
         />
         <div className='container text-center'>
@@ -117,6 +114,7 @@ class Resume extends React.Component {
                     <div className='panel column col-sm-11 col-11 col-mx-auto text-left job-panel' key={'job-'+i}>
                       <h5>{job.company}</h5>
                       <p className='text-large'>{job.position}</p>
+                      <div className='divider'></div>
                       <p>{job.summary}</p>
                       <ul className='job-duties'>
                         {job.highlights.map((highlight, i) => 
@@ -138,6 +136,7 @@ class Resume extends React.Component {
                     <div className='panel column col-sm-11 col-11 col-mx-auto text-left job-panel' key={'school-'+i}>
                       <h5>{school.institution}</h5>
                       <p className='text-large'>{school.studyType}, {school.area}</p>
+                      <div className='divider'></div>
                       <p>{school.summary}</p>                      
                     </div>
                   )}
@@ -146,6 +145,7 @@ class Resume extends React.Component {
             />
           </div>
         </div>
+        <ScrollToTop />
       </div>
     );
   }

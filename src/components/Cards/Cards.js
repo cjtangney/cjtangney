@@ -107,10 +107,10 @@ const Card = (props) => {
 
 			return(
 				<div className='columns'>
-					<div className='column col-md-12 col-lg-7 col-8'>
+					<div className='column col-md-12 col-lg-8 col-8'>
 						{imgContent}
 					</div>
-					<div className='column col-md-12 col-lg-5 col-4'>
+					<div className='column col-md-12 col-lg-4 col-4'>
 						{content}
 					</div>
 				</div>
@@ -124,10 +124,10 @@ const Card = (props) => {
 
 			return(
 				<div className='columns'>
-					<div className='column col-md-12 col-lg-5 col-4'>
+					<div className='column col-md-12 col-lg-4 col-4'>
 						{content}
 					</div>
-					<div className='column col-md-12 col-lg-7 col-8'>
+					<div className='column col-md-12 col-lg-8 col-8'>
 						{imgContent}
 					</div>
 				</div>

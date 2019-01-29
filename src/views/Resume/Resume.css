@@ -1,3 +1,6 @@
+#card-container{
+	position: relative;
+}
 #resume-header{
 	margin-top: 0;
 }
@@ -9,7 +12,7 @@
 	padding-bottom: 0.8rem;
 }
 .col-4.competency-panel{
-	border-right: 0.1rem solid #dadee4;
+	border-right: 0.05rem solid #f1f3f5;
 }
 .col-4.competency-panel:last-child{
 	border: none;
@@ -34,7 +37,7 @@
 	padding-left: 1.4rem;
 }
 .skills-container h5{
-	border-right: 0.1rem solid #dadee4;
+	border-right: 0.05rem solid #f1f3f5;
 }
 .skills-container h5:last-child{
 	border-right: none;
@@ -59,35 +62,35 @@ ul.job-duties>li:not(:last-child){
 @media (max-width: 1280px) {
 	/* xl */
 	.col-xl-8.competency-panel{
-		border-bottom: 0.1rem solid #dadee4;
+		border-bottom: 0.05rem solid #f1f3f5;
 		border-right: none;
 	}
 }
 @media (max-width: 960px) {
 	/* lg */
   .col-lg-9.competency-panel{
-  	border-bottom: 0.1rem solid #dadee4;
+  	border-bottom: 0.05rem solid #f1f3f5;
 		border-right: none;
   }
 }
 @media (max-width: 840px) {
 	/* md */
   .col-md-10.competency-panel{
-  	border-bottom: 0.1rem solid #dadee4;
+  	border-bottom: 0.05rem solid #f1f3f5;
 		border-right: none;
   }
 }
 @media (max-width: 600px) {
 	/* sm */
  	.col-sm-12.competency-panel{
-  	border-bottom: 0.1rem solid #dadee4;
+  	border-bottom: 0.05rem solid #f1f3f5;
 		border-right: none;
   } 
 }
 @media (max-width: 480px) {
 	/* xs */
   .col-xs-12.competency-panel{
-  	border-bottom: 0.1rem solid #dadee4;
+  	border-bottom: 0.05rem solid #f1f3f5;
 		border-right: none;
   }
 }

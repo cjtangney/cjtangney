@@ -30,7 +30,8 @@
 	color: #666568;
 }
 
-.card button {
+.card button,
+.card a {
 	padding: 1rem 3rem 2rem 3rem;
 	text-transform: uppercase;
 	border-color: #666568;
@@ -38,22 +39,27 @@
 }
 
 .card button.btn:hover,
-.card button.btn:focus {
+.card a.btn:hover,
+.card button.btn:focus,
+.card a.btn:focus {
 	background-color: #F1F1FC;
 	border-color: #666568;
 }
 
-.card button.btn:active {
+.card button.btn:active,
+.card a.btn:active {
 	background-color: #666568; 
 	border-color: #F1F1F1;
 	color: #F1F1F1;
 }
 
-.card .card-footer button {
+.card .card-footer button,
+.card .card-footer a {
 	margin-top: -0.5rem;	
 }
 
-.card .card-body button {
+.card .card-body button,
+.card .card-body a {
 	margin-top: 2rem;
 }
 
@@ -77,7 +83,9 @@
 }
 
 .card.img-left .card-footer button,
-.card.img-right .card-footer button {
+.card.img-right .card-footer button,
+.card.img-left .card-footer a,
+.card.img-right .card-footer a, {
 	padding: 0.5rem 1rem 0.5rem 1rem;
 	height: auto;
 	white-space: normal;
