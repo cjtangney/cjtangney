@@ -18,15 +18,38 @@ class Resume extends React.Component {
       data: this.parseData()
     }
   }
+  componentDidMount(){
+    this.detectWrap();
+    window.addEventListener('resize', this.detectWrap);
+  }
   parseData = () => {
     return(JSON.parse(JSON.stringify(require('./data.json'))));
+  }
+  detectWrap = (event) => {  
+    let containers = document.getElementsByClassName('skills-container');
+    let wrappedItems = [];
+    let currItem = {};
+    Array.from(containers).forEach(container => {
+      let prevItem;
+      Array.from(container.children).forEach(child => {
+        child.classList.remove('break');
+        currItem = child.getBoundingClientRect();
+        if(prevItem && (prevItem.getBoundingClientRect()).top < currItem.top){ wrappedItems.push(prevItem) }
+        prevItem = child;
+      })
+    })
+    return(
+      wrappedItems.forEach(item => {
+        item.classList.add('break');
+      })
+    );
   }
   render() {
     return (
       <div className='card-container'>
-        {console.log(this.state.data)}
         <Card 
-          classes='text-center resume-header'
+          id='resume-header'
+          classes='text-center'
           cardHeader='Hey again!' 
           cardBody={
             <div className='container'>
@@ -41,15 +64,81 @@ class Resume extends React.Component {
         />
         <div className='container text-center'>
           <div className='columns'>
+            {/* core competencies */}
             <Card
-              classes='column col-sm-12 col-md-10 col-10 col-mx-auto'
+              classes='column col-sm-12 col-md-10 col-10 col-mx-auto resume-card'
               cardHeader='Core Competencies'
               cardBody={
                 <div className='columns'>
-                  {this.state.data.competencies.map(compentency => 
-                    <div className='panel col-sm-11 col-md-3 col-3 col-mx-auto text-left resume-panel'>
-                      <p className='text-large'>{compentency.name}</p>
+                  {this.state.data.competencies.map((compentency, i) => 
+                    <div className='panel column col-xs-12 col-md-10 col-lg-9 col-xl-8 col-3 col-mx-auto text-left competency-panel' key={'compentency-'+i}>
+                      <h5>{compentency.name}</h5>
                       <p>{compentency.summary}</p>
+                    </div>
+                  )}
+                </div>
+              }
+            />
+            {/* skills */}
+            <Card
+              classes='column col-sm-12 col-md-10 col-10 col-mx-auto resume-card'
+              cardHeader='Additional Skills'
+              cardBody={
+                <div className='columns'>
+                  <div className='column col-sm-11 col-md-3 col-3 col-mx-auto text-left skills-container' id='skills'>
+                  {this.state.data.skills.map((skill, i) => 
+                    <h5 key={'skill-'+i}>{skill}</h5>
+                  )}
+                  </div>
+                </div>
+              }
+            />
+            {/* computer languages & technology */}
+            <Card
+              classes='column col-sm-12 col-md-10 col-10 col-mx-auto resume-card'
+              cardHeader='Computer Languages &amp; Technologies'
+              cardBody={
+                <div className='columns'>
+                  <div className='column col-sm-11 col-md-3 col-3 col-mx-auto text-left skills-container' id='languages'>
+                  {this.state.data.languages.map((language, i) => 
+                    <h5 key={'language-'+i}>{language}</h5>
+                  )}
+                  </div>
+                </div>
+              }
+            />
+            {/* work experience */}
+            <Card
+              classes='column col-sm-12 col-md-10 col-10 col-mx-auto resume-card'
+              cardHeader='Employment History'
+              cardBody={
+                <div className='columns'>
+                  {this.state.data.work.map((job, i) => 
+                    <div className='panel column col-sm-11 col-11 col-mx-auto text-left job-panel' key={'job-'+i}>
+                      <h5>{job.company}</h5>
+                      <p className='text-large'>{job.position}</p>
+                      <p>{job.summary}</p>
+                      <ul className='job-duties'>
+                        {job.highlights.map((highlight, i) => 
+                          <li key={job.position+'-'+i}>{highlight}</li>
+                        )}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              }
+            />
+          {/* education */}
+            <Card
+              classes='column col-sm-12 col-md-10 col-10 col-mx-auto resume-card'
+              cardHeader='Education'
+              cardBody={
+                <div className='columns'>
+                  {this.state.data.education.map((school, i) => 
+                    <div className='panel column col-sm-11 col-11 col-mx-auto text-left job-panel' key={'school-'+i}>
+                      <h5>{school.institution}</h5>
+                      <p className='text-large'>{school.studyType}, {school.area}</p>
+                      <p>{school.summary}</p>                      
                     </div>
                   )}
                 </div>

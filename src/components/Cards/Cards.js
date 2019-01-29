@@ -79,6 +79,9 @@ const Card = (props) => {
 		else{classes = 'card';}
 		return classes;
 	}
+	const getID = () => {
+		if(props.id){return(props.id)}
+	}
 	const getCard = () => {
 		let content = [];
 		let classes = getClasses();
@@ -138,7 +141,7 @@ const Card = (props) => {
 
 	return (
 		/* CARD */
-		<div className={getClasses()}>
+		<div className={getClasses()} id={getID()}>
 			{getCard()}
 		</div>
 	);
@@ -147,6 +150,7 @@ const Card = (props) => {
 /* prop info
 */
 Card.propTypes = {
+	id: propTypes.string,
 	classes: propTypes.string,
 	cardHeader: propTypes.oneOfType([propTypes.string, propTypes.object]),
 	cardBody: propTypes.oneOfType([propTypes.string, propTypes.object]),
