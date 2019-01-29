@@ -63,33 +63,21 @@
 		"startDate": "2010-09-01",
 		"endDate": "2014-05-01"
 	}],
-	"skills": [{
+	"competencies": [{
 			"name": "Web Development",
-			"keywords": [
-				"HTML",
-				"Javascript",
-				"React",
-				"Mongo"
-			]
+			"summary": "Web development has always been a passion of mine. My degree contained numerous courses to help strengthen my existing knowledge on the subject, and I have dedicated a large amount of my time to learning best practices with regards to developing scalable web applications. This has allowed me to best determine the appropriate methodologies for a client and make certain that their needs are met."
 		},
 		{
-			"name": "Data Manipulation",
-			"keywords": [
-				"XML",
-				"JSON",
-				"Javascript",
-				"Mongo"
-			]
+			"name": "Problem Solving",
+			"summary": "Many of the tasks I have been assigned during my career have not been presented to me with a clear path to completion. I excel at finding a solution to these tasks, often times utilizing a number of different technologies or frameworks. My skill set is such that I can pull from a number of backgrounds, allowing me to determine the most efficient way to solve a problem."
 		},
 		{
-			"name": "Design",
-			"keywords": [
-				"CSS",
-				"Page layout",
-				"Sass",
-				"SCSS"
-			]
+			"name": "Project Management",
+			"summary": "I am often expected to juggle many projects at once with a high level of accuracy. The use of project management tools, such as Todoist and Asana, allow me to ensure that no tasks for a given project are overlooked and that all of them completed in a timely manner."
 		}
+	],
+	"skills": [
+		"Web Development", "Data Manipulation", "File Management", "Object Oriented Programming", "Page Layout (Print / Web)", "Technical Support", "Design"
 	],
 	"languages": [{
 		"language": "English",
