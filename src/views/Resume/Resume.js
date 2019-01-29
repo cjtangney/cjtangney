@@ -46,7 +46,7 @@ class Resume extends React.Component {
   }
   render() {
     return (
-      <div className='card-container'>
+      <div className='card-container' id='resume-background'>
         <Card 
           id='resume-header'
           classes='text-center'
@@ -69,9 +69,9 @@ class Resume extends React.Component {
               classes='column col-sm-12 col-md-10 col-10 col-mx-auto resume-card'
               cardHeader='Core Competencies'
               cardBody={
-                <div className='columns'>
+                <div className='columns' id='compentencies'>
                   {this.state.data.competencies.map((compentency, i) => 
-                    <div className='panel column col-xs-12 col-md-10 col-lg-9 col-xl-8 col-3 col-mx-auto text-left competency-panel' key={'compentency-'+i}>
+                    <div className='panel column col-xs-12 col-md-10 col-lg-9 col-xl-8 col-4 text-left competency-panel' key={'compentency-'+i}>
                       <h5>{compentency.name}</h5>
                       <p>{compentency.summary}</p>
                     </div>
