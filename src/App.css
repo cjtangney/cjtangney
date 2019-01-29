@@ -1,5 +1,6 @@
 html, body{
 	height: 100%;
+  background-color: #dadee4;
 }
 .prevent-scroll{
   overflow: hidden;

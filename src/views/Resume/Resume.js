@@ -46,7 +46,7 @@ class Resume extends React.Component {
   }
   render() {
     return (
-      <div className='card-container' id='resume-background'>
+      <div className='card-container'>
         <Card 
           id='resume-header'
           classes='text-center'
