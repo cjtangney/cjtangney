@@ -4,8 +4,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card } from '../../components/Cards/Cards';
-//import { Modal } from '../../components/Modal/Modal';
-//import { Gallery } from '../../components/Gallery/Gallery';
+import { ScrollToTop } from '../../components/ScrollToTop/ScrollToTop';
 //import './Blog.css';
 
 const PUBLIC = process.env.PUBLIC_URL;
@@ -15,24 +14,36 @@ class Blog extends React.Component {
     super(props);
 
     this.state = {
-      post: this.parseData(),
+      files: '',
+      post: '',
+      formattedPosts: [],
     }
   }
-  componentDidMount(){
-    this.formatPost(this.state.post);
+  async componentDidMount(){
+    this.getFiles().then(res => {
+      this.parseData(res);
+    });
   }
-  parseData = () => {
-    return(JSON.parse(JSON.stringify(require('./post.json'))));
+  getFiles = async () => {    
+    let blogController = require('../../controllers/Blog/Blog');
+    let files = await blogController.getBlogPosts();
+    return(files);
+  }
+  parseData = (files) => {
+    //console.log(files);
   }
   formatPost = (post) => {
     //showdown is the markdown viewer
     let Showdown = require('showdown');
-    let converter = new Showdown.Converter();
+    let converter = new Showdown.Converter({strikethrough: true});
     let formattedPost = [converter.makeHtml(post.title)];
     post.body.map(line => {
       formattedPost.push(converter.makeHtml(line))
     });
-    this.displayPost(formattedPost)
+    this.setState({
+      formattedPosts: formattedPost,
+    });
+    console.log(formattedPost);
   }
   displayPost = (formattedPost) => {
     let container = document.getElementById('post-container');
@@ -60,10 +71,20 @@ class Blog extends React.Component {
           }
       	/>
         <div className='columns'>
-          <div className='column col-xs-12 col-sm-10 col-md-9 col-lg-8 col-xl-7 col-7 col-mx-auto' id='post-container'>
-            {/* the post body will print here */}
-          </div>  
+          <Card
+            classes='column col-sm-12 col-md-10 col-10 col-mx-auto'
+            cardBody={
+              <div className='container'>
+                <div className='columns'>
+                  <div className='column col-xs-12 col-md-10 col-lg-9 col-xl-8 col-7 col-mx-auto' id='post-container'>
+                    {/* the post body will print here */}
+                  </div>
+                </div>
+              </div>
+            }
+          />
         </div>
+        <ScrollToTop />
       </div>
     );
   }

@@ -1,0 +1,8 @@
+{
+	"id": 1,
+	"title":"# React Component Rambling: Card Component_01",
+	"body":[
+		"This will be the Card Component blog for my React Component Rambling series. Mostly, I'm just using this to test that multiple JSON imports work from the public `blog_posts` directory. We shall seeeeeeeeeeeeeeeeeeee.",
+		"Thanks for reading!"
+	]
+}
