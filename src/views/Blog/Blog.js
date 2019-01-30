@@ -11,6 +11,33 @@ import { Card } from '../../components/Cards/Cards';
 const PUBLIC = process.env.PUBLIC_URL;
 
 class Blog extends React.Component {
+  constructor(props){
+    super(props);
+
+    this.state = {
+      post: this.parseData(),
+    }
+  }
+  componentDidMount(){
+    this.formatPost(this.state.post);
+  }
+  parseData = () => {
+    return(JSON.parse(JSON.stringify(require('./post.json'))));
+  }
+  formatPost = (post) => {
+    //showdown is the markdown viewer
+    let Showdown = require('showdown');
+    let converter = new Showdown.Converter();
+    let formattedPost = [converter.makeHtml(post.title)];
+    post.body.map(line => {
+      formattedPost.push(converter.makeHtml(line))
+    });
+    this.displayPost(formattedPost)
+  }
+  displayPost = (formattedPost) => {
+    let container = document.getElementById('post-container');
+    container.innerHTML = formattedPost.join(' ');
+  }
   render() {
     return (
       <div id='card-container'>
@@ -32,7 +59,12 @@ class Blog extends React.Component {
             </div>
           }
       	/>
-    </div>
+        <div className='columns'>
+          <div className='column col-xs-12 col-sm-10 col-md-9 col-lg-8 col-xl-7 col-7 col-mx-auto' id='post-container'>
+            {/* the post body will print here */}
+          </div>  
+        </div>
+      </div>
     );
   }
 }
