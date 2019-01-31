@@ -48,24 +48,35 @@ class Blog extends React.Component {
     let converter = new Showdown.Converter({strikethrough: true});
     let formattedPosts = [];
     let currentPost;
-    this.state.posts.map(post => {
+    this.state.posts.map((post, i) => {
       currentPost = [];
       currentPost = [converter.makeHtml(post.title)];
       post.body.map(line => {
         currentPost.push(converter.makeHtml(line));
       });
-      //parse out commas between html elements when dangerouslySetInnerHTML
+      //join the post array to remove commas from output
       currentPost = currentPost.join(' ');
-      formattedPosts.push(currentPost)
+      formattedPosts.push(
+        <Card
+          classes='column col-sm-12 col-md-10 col-8 col-mx-auto'
+          cardBody={
+            <div className='container'>
+              <div className='columns'>
+                <div className='column col-xs-12 col-md-10 col-lg-10 col-xl-10 col-10 col-mx-auto' id={'post-thumb-'+i} dangerouslySetInnerHTML={{ __html: currentPost }}>
+                  {/* the post body will print here */}
+                </div>
+              </div>
+            </div>
+          }
+          key={'post-thumb-'+i}
+        />
+      )
     })
-    formattedPosts = formattedPosts.join(' ');
+    //formattedPosts = formattedPosts.join(' ');
     this.setState({
       loading: false,
       formattedPosts: formattedPosts,
     });
-    
-    let container = document.getElementById('post-container');
-    container.innerHTML = formattedPosts;
   }
   render() {
     return (
@@ -89,18 +100,9 @@ class Blog extends React.Component {
           }
       	/>
         <div className='columns'>
-          <Card
-            classes='column col-sm-12 col-md-10 col-10 col-mx-auto'
-            cardBody={
-              <div className='container'>
-                <div className='columns'>
-                  <div className='column col-xs-12 col-md-10 col-lg-9 col-xl-8 col-7 col-mx-auto' id='post-container'>
-                    {/* the post body will print here */}
-                  </div>
-                </div>
-              </div>
-            }
-          />
+          <div id='blog-container'>
+            {this.state.formattedPosts}
+          </div>
         </div>
         <ScrollToTop />
       </div>

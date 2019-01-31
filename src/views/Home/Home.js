@@ -26,7 +26,7 @@ class Home extends React.Component {
               <div className='btn-group'>
               	<Link to='/resume' className='btn' onClick={event => window.scrollTo(0,0)}>Resume</Link>
                 <Link to='#' className='btn'>My Work</Link>
-                <Link to='#' className='btn'>About This Site</Link>
+                {/*<Link to='#' className='btn'>About This Site</Link>*/}
                 <Link to='#' className='btn'>About Me</Link>
               </div>
             </div>
