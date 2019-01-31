@@ -14,25 +14,26 @@ class Blog extends React.Component {
     super(props);
 
     this.state = {
-      files: '',
-      post: '',
-      formattedPosts: [],
+      posts: []
     }
   }
-  async componentDidMount(){
-    this.getFiles().then(res => {
-      this.parseData(res);
-    });
-  }
-  getFiles = async () => {    
+  componentDidMount(){
     let blogController = require('../../controllers/Blog/Blog');
-    let files = await blogController.getBlogPosts();
-    return(files);
+    blogController.getFiles('/blog_posts/')
+      .then(res => {
+        res.data.forEach(file => {
+          blogController.getPost('/blog_posts/' + file)
+            .then(res => {
+              let data = this.state.posts;
+              data.push(res.data);
+              this.setState({
+                posts: data
+              })
+            })
+        });
+      })
   }
-  parseData = (files) => {
-    //console.log(files);
-  }
-  formatPost = (post) => {
+  formatPosts = (post) => {
     //showdown is the markdown viewer
     let Showdown = require('showdown');
     let converter = new Showdown.Converter({strikethrough: true});
