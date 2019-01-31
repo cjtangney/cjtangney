@@ -1,4 +1,10 @@
 /* view info
+  
+  state : {
+    loads all blog posts from: public/blog_posts/*.json;
+    keeps track of blog posts and loading state;
+    stores the formatted posts as html (currently parsed from markdown);
+  }
 */
 
 import React from 'react';
@@ -14,7 +20,9 @@ class Blog extends React.Component {
     super(props);
 
     this.state = {
-      posts: []
+      loading: true,
+      posts: [],
+      formattedPosts: [],
     }
   }
   componentDidMount(){
@@ -28,27 +36,36 @@ class Blog extends React.Component {
               data.push(res.data);
               this.setState({
                 posts: data
-              })
+              });
+              this.formatPosts();
             })
         });
       })
   }
-  formatPosts = (post) => {
+  formatPosts = () => {
     //showdown is the markdown viewer
     let Showdown = require('showdown');
     let converter = new Showdown.Converter({strikethrough: true});
-    let formattedPost = [converter.makeHtml(post.title)];
-    post.body.map(line => {
-      formattedPost.push(converter.makeHtml(line))
-    });
+    let formattedPosts = [];
+    let currentPost;
+    this.state.posts.map(post => {
+      currentPost = [];
+      currentPost = [converter.makeHtml(post.title)];
+      post.body.map(line => {
+        currentPost.push(converter.makeHtml(line));
+      });
+      //parse out commas between html elements when dangerouslySetInnerHTML
+      currentPost = currentPost.join(' ');
+      formattedPosts.push(currentPost)
+    })
+    formattedPosts = formattedPosts.join(' ');
     this.setState({
-      formattedPosts: formattedPost,
+      loading: false,
+      formattedPosts: formattedPosts,
     });
-    console.log(formattedPost);
-  }
-  displayPost = (formattedPost) => {
+    
     let container = document.getElementById('post-container');
-    container.innerHTML = formattedPost.join(' ');
+    container.innerHTML = formattedPosts;
   }
   render() {
     return (
