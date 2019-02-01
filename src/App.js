@@ -6,6 +6,7 @@ import Route from 'react-router-dom/Route';
 import Home from './views/Home/Home';
 import Blog from './views/Blog/Blog';
 import Resume from './views/Resume/Resume';
+import Work from './views/Work/Work';
 
 import './App.css';
 
@@ -33,6 +34,9 @@ class App extends Component {
             )} />
             <Route exact path='/resume' render={ (e) => (
               <Resume {...e} />
+            )} />
+            <Route exact path='/work' render={ (e) => (
+              <Work {...e} />
             )} />
           </Switch>
         </Router>

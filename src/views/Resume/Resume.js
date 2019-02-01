@@ -126,7 +126,7 @@ class Resume extends React.Component {
                 </div>
               }
             />
-          {/* education */}
+            {/* education */}
             <Card
               classes='column col-sm-12 col-md-10 col-10 col-mx-auto resume-card'
               cardHeader='Education'

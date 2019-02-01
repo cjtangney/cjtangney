@@ -38,6 +38,11 @@
 	color: #666568;
 }
 
+.card p a {
+	padding: 0;
+	color: #5755d9;
+}
+
 .card button.btn:hover,
 .card a.btn:hover,
 .card button.btn:focus,

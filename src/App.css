@@ -1,6 +1,9 @@
 html, body{
 	height: 100%;
 }
+.btn-group{
+  width: 100%;
+}
 .prevent-scroll{
   overflow: hidden;
 }

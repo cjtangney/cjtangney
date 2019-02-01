@@ -1,0 +1,16 @@
+{
+	"name": "New Hampshire Mountain Inn",
+	"website": "",
+	"repository": "",
+	"technologies": [
+		"Razzle",
+		"Strapi",
+		"MongoDB",
+		"Spectre CSS",
+		"ExpressJS"
+	],
+	"description": "During my time as Webmaster for Pacific Group Resorts, one of the things that I sought to address most was modernizing their web presence. Not only was the look and feel of their existing web presence rather dated, but on their current content management system, their time to web was slow. This impacted their ability to respond to industry changes efficiently. Enter Strapi, React, and a modern, responsive design!",
+	"body": [
+		""
+	]
+}
