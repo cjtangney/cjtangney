@@ -61,13 +61,15 @@ class Work extends React.Component {
       imgDir === 'right' ? imgDir = 'left' : imgDir = 'right';
       formattedPosts.push(
         <Card
-          classes={'col-sm-12 col-md-10 col-10 img-' + imgDir + ' col-mx-auto work-card'}
+          classes={'col-xs-12 col-md-10 col-10 img-' + imgDir + ' col-mx-auto work-card'}
           imgSrc={PUBLIC + '/img/work/' + post.folder + '/thumbnail.jpg'}
           altTxt='An image'
           cardHeader={post.data.name}
           cardBody={
-            <div className='columns' id={'work-card-'+i} dangerouslySetInnerHTML={{ __html: currentPost }}>
-              {/* the post body will print here */}
+            <div className='columns'>
+              <div className='column col-xs-12' id={'work-card-'+i} dangerouslySetInnerHTML={{ __html: currentPost }}>
+                {/* the post body will print here */}
+              </div>
             </div>
           }
           cardFooter={

@@ -1,0 +1,15 @@
+{
+	"name": "CoupON",
+	"website": "",
+	"repository": "",
+	"technologies": [
+		"ReactJS",
+		"ExpressJS",
+		"MongoDB",
+		"Spectre CSS"
+	],
+	"description": "CoupON is a project that arose from a need for an application that would allow easy generation of serial numbers to be used with various barcodes or coupons. In addition to generation of the serial numbers, the application also allows for customer service representatives to redeem barcoded vouchers at a point of sale terminal.",
+	"body": [
+		""
+	]
+}

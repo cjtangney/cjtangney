@@ -1,0 +1,23 @@
+#blog-container{
+	padding-top: 1rem;
+}
+.k-go-home{
+	padding: 1rem 3rem 2rem 3rem;
+	margin-bottom: 1rem;
+	text-transform: uppercase;
+	border-color: #666568;
+	color: #666568;
+}
+.k-go-home:hover,
+.k-go-home:focus{
+	background-color: #F1F1FC;
+	border-color: #666568;
+}
+.k-go-home:active{
+	background-color: #666568; 
+	border-color: #F1F1F1;
+	color: #F1F1F1;
+}
+.k-go-home:visited{
+	color: #666568;
+}
