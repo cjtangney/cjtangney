@@ -13,6 +13,7 @@ class App extends Component {
   render() {
     return (
       <div id="app">
+      <Switch>
         <Route exact path='/' render={ (e) => (
           <Home {...e} />
         )} />
@@ -28,6 +29,10 @@ class App extends Component {
         <Route path='/work/:folder' render={ (e) => (
           <Work {...e} />
         )} />
+        <Route exact path='*' render={ (e) => (
+          <h1 className='text-center'>404 Page Not Found</h1>
+        )} />
+      </Switch>
       </div>
     );
   }

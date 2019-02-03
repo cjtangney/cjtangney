@@ -58,14 +58,10 @@ class Blog extends React.Component {
       currentPost = currentPost.join(' ');
       formattedPosts.push(
         <Card
-          classes='column col-sm-12 col-md-10 col-8 col-mx-auto'
+          classes='column col-xs-12 col-md-10 col-lg-10 col-xl-10 col-10 col-mx-auto'
           cardBody={
-            <div className='container'>
-              <div className='columns'>
-                <div className='column col-xs-12 col-md-10 col-lg-10 col-xl-10 col-10 col-mx-auto' id={'post-thumb-'+i} dangerouslySetInnerHTML={{ __html: currentPost }}>
-                  {/* the post body will print here */}
-                </div>
-              </div>
+            <div className='container' id={'post-thumb-'+i} dangerouslySetInnerHTML={{ __html: currentPost }}>
+              {/* the post body will print here */}
             </div>
           }
           key={'post-thumb-'+i}

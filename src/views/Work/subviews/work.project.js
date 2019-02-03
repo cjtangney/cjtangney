@@ -10,20 +10,18 @@ const PUBLIC = process.env.PUBLIC_URL;
 const workController = require('../../../controllers/Work/Work');
 
 class WorkProject extends React.Component {
-  componentDidMount(){
-    //console.log(this.props.match.params.folder)
-  }
   findPost = () => {
+    let postName = '';
     let postData = this.props.posts.filter(post => {
       return(post.folder === this.props.match.params.folder)
     });
     if(postData.length){
+      postName = postData[0].data.name;
       postData = postData[0].data.body;
     }
-    console.log(postData);
-    return(this.formatPost(postData));
+    return(this.formatPost(postName, postData));
   }
-  formatPost = (postData) => {
+  formatPost = (postName, postData) => {
     //showdown is the markdown viewer
     let Showdown = require('showdown');
     let converter = new Showdown.Converter({strikethrough: true});
@@ -36,14 +34,14 @@ class WorkProject extends React.Component {
     return(
       <Card
         classes='column col-sm-12 col-md-10 col-8 col-mx-auto'
+        cardHeader={postName}
         cardBody={
-          <div className='container'>
-            <div className='columns'>
-              <div className='column col-xs-12 col-md-10 col-lg-10 col-xl-10 col-10 col-mx-auto' dangerouslySetInnerHTML={{ __html: currentPost }}>
-                {/* the post body will print here */}
-              </div>
-            </div>
+          <div className='container' dangerouslySetInnerHTML={{ __html: currentPost }}>
+            {/* the post body will print here */}
           </div>
+        }
+        cardFooter={
+          <Link to='/work' className='btn'>Go back</Link>
         }
         key={'project-' + this.props.match.params.folder}
       />

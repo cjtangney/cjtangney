@@ -31,10 +31,8 @@ class WorkHome extends React.Component {
           altTxt='An image'
           cardHeader={post.data.name}
           cardBody={
-            <div className='columns'>
-              <div className='column col-xs-12' id={'work-card-'+i} dangerouslySetInnerHTML={{ __html: currentPost }}>
-                {/* the post body will print here */}
-              </div>
+            <div className='container' id={'work-card-'+i} dangerouslySetInnerHTML={{ __html: currentPost }}>
+              {/* the post body will print here */}
             </div>
           }
           cardFooter={
