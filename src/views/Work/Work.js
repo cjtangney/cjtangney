@@ -2,25 +2,27 @@
 */
 
 import React from 'react';
+import Switch from 'react-router-dom/Switch';
+import Route from 'react-router-dom/Route';
 import { Link } from 'react-router-dom';
 import { Card } from '../../components/Cards/Cards';
 import { ScrollToTop } from '../../components/ScrollToTop/ScrollToTop';
+import WorkHome from './subviews/work.home';
+import WorkProject from './subviews/work.project';
 import './Work.css';
 
 const PUBLIC = process.env.PUBLIC_URL;
+const workController = require('../../controllers/Work/Work');
 
 class Work extends React.Component {
   constructor(props){
     super(props);
 
     this.state = {
-      loading: true,
       posts: [],
-      formattedPosts: [],
     }
   }
   componentDidMount(){
-    let workController = require('../../controllers/Work/Work');
     workController.getFolders('/work/')
       .then(res => {
         res.data.forEach(folder => {
@@ -37,53 +39,11 @@ class Work extends React.Component {
                     this.setState({
                       posts: data
                     });
-                    this.formatPosts();
                   })
               })
             })
         })
       }); 
-  }
-  formatPosts = () => {
-    //showdown is the markdown viewer
-    let Showdown = require('showdown');
-    let converter = new Showdown.Converter({strikethrough: true});
-    let formattedPosts = [];
-    let currentPost;
-    //initial image direction should be set to the opposite side you'd like the image to display on
-    let imgDir = 'right';
-    this.state.posts.map((post, i) => {
-      currentPost = [];
-      currentPost.push(converter.makeHtml(post.data.description));
-      //join the post array to remove commas from output
-      currentPost = currentPost.join(' ');
-      //determine which side the image should display on
-      imgDir === 'right' ? imgDir = 'left' : imgDir = 'right';
-      formattedPosts.push(
-        <Card
-          classes={'col-xs-12 col-md-10 col-10 img-' + imgDir + ' col-mx-auto work-card'}
-          imgSrc={PUBLIC + '/img/work/' + post.folder + '/thumbnail.jpg'}
-          altTxt='An image'
-          cardHeader={post.data.name}
-          cardBody={
-            <div className='columns'>
-              <div className='column col-xs-12' id={'work-card-'+i} dangerouslySetInnerHTML={{ __html: currentPost }}>
-                {/* the post body will print here */}
-              </div>
-            </div>
-          }
-          cardFooter={
-            <Link to='#' className='btn'>Learn more!</Link>
-          }
-          key={'work-card-'+i}
-        />
-      )
-    })
-    //formattedPosts = formattedPosts.join(' ');
-    this.setState({
-      loading: false,
-      formattedPosts: formattedPosts,
-    });
   }
   render() {
     return (
@@ -104,7 +64,12 @@ class Work extends React.Component {
         />
         <div id='work-container'>
           <div className='columns'>
-            {this.state.formattedPosts}
+            <Route exact path='/work' render={e=>(
+              <WorkHome {...e} posts={this.state.posts} />
+            )} />
+            <Route path='/work/:folder' render={e=>(
+              <WorkProject {...e} posts={this.state.posts}/>
+            )} />
           </div>
           <ScrollToTop />
         </div>
