@@ -36,7 +36,7 @@ class WorkHome extends React.Component {
             </div>
           }
           cardFooter={
-            <Link to={'/work/' + post.folder} className='btn' id={post.folder}>Learn more!</Link>
+            <Link to={'/work/' + post.folder} className='btn' id={post.folder} onClick={event => window.scrollTo(0,0)}>Learn more!</Link>
           }
           key={'work-card-'+i}
         />

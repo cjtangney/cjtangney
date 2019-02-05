@@ -41,7 +41,7 @@ class WorkProject extends React.Component {
           </div>
         }
         cardFooter={
-          <Link to='/work' className='btn'>Go back</Link>
+          <Link to='/work' className='btn' onClick={event => window.scrollTo(0,0)}>Go back</Link>
         }
         key={'project-' + this.props.match.params.folder}
       />

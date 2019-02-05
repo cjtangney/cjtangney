@@ -59,7 +59,7 @@ class Work extends React.Component {
             </div>
           }
           cardFooter={
-            <Link to='/' className='btn'>Take me home!</Link>
+            <Link to='/' className='btn' onClick={event => window.scrollTo(0,0)}>Take me home!</Link>
           }
         />
         <div id='work-container'>
