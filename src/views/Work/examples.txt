@@ -1,0 +1,6 @@
+EXAMPLES OF WORK TO INCLUDE:
+-> NHMI site + strapi back end (back-end / cms, web design, javascript)
+-> Barcode reader (data type creation, back-end validation, csv parsing, javascript)
+-> Stateless charts (data type, csv parsing, real-time charts)
+-> Include some of your photography or maybe?
+-> Eventually, blogs

@@ -6,7 +6,15 @@
 
 	usage: {
 		closure function is self-contained: closeModal();
+		modal contents stored in array;
 		an id prop must be provided to enable closure;
+		pass additional class through the classes prop to modify the layout: {
+			full page modal: {
+				full-page: {
+					creates a full-page, flexbox based modal
+				}
+			}
+		}
 	}
 */
 
@@ -15,6 +23,7 @@ import propTypes from 'prop-types';
 import './Modal.css';
 
 const Modal = (props) => {
+	//close modal function also prevents scrolling on the body
 	const closeModal = (e) => {
     e.preventDefault();
     document.getElementById(props.id).classList.remove('active');
@@ -54,6 +63,7 @@ const Modal = (props) => {
   	if(props.classes){classes = 'modal ' + props.classes}
   	else{classes = 'modal'};
 
+  	//store modal contents
   	if(props.modalTitle)content.push(getTitle());
   	if(props.modalContent)content.push(getContent());
   	if(props.modalFooter)content.push(getFooter());
@@ -69,6 +79,7 @@ const Modal = (props) => {
   }
   
 	return(
+		/* MODAL */
 	  getModal()
 	)
 }

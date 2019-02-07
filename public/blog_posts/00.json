@@ -1,0 +1,18 @@
+{
+	"id": 0,
+	"title":"# 00_Let's Rebuild My Website",
+	"body":[
+		"So I'm starting a blog? I use the question mark pretty deliberately because, as I have never done this before, I'm not really certain where to start. I'm always the kind of person who likes to \"pick up where we left off,\" so without having anywhere to start *from* I usually find myself struggling.",
+		"With no other real inspiration to draw from, I figured I would use the development of this web page as my starting blocks. It's been a number of years since I've revisited my personal web presence, so killing two birds with one stone seemed like the best option. I should mention that I can't say for sure how in-depth I'm going to get with these posts. I often ramble, and it seems highly possible that I may start talking about whatever is consuming me at the time.",
+		"For now, I'll try to reel it in and focus on the task at hand: what the heck am I actually building here? To be honest, I'm not really certain. At the moment my web presence is pretty limited, really only highlighting some of my previous experiences and mentioning, \"Oh, hey, I went to school.\" Neat...",
+		"I want my new site to be something different. I not only want this to be a place where I can send people to learn a little bit about the work that I do, but I also want this to be a place where I can come to talk about things that have *not* worked. I wanted a place to come and bash my head to the keyboard when I can't quite figure something out. I wanted a place to share my experiences learning new things in the hopes that someone else may learn from my past (or present) stupidity.",
+		"Now that I've rambled for most of this post, I might as well talk about the site a little bit. I think moving forward, I'll probably just highlight a given component from post to post -- at least for the time being. Since most of this post was just some background information (also read: crazed ramblings), I'll keep the informative bits brief:",
+		"* This site is built using React, because I like it. I like Javascript, I like HTML, and I like CSS. React marries the three pretty nicely, and in a way that feels pretty intuitive to me. I've dabbled in other front end frameworks, but I always find myself come back to React.",
+		"* The routing is done with React Router so that history works. Right now, since this site is being served using gh-pages, I'm using a HashRouter (thus the #) for the sake of convenience. There are better / much more elegant solutions, but this met my needs for the time, so I ran with it. When I move away from gh-pages, I'll certaily be using a different solution.",
+		"* At the moment, I have not tied a back end into it. This post was hard-coded, probably in some JSON file that I uploaded and formatted manually. ~~I might even get cheeky and store some markdown right in the JSON file~~ I actually did get cheeky and store it all in markdown. It's a labor of love, I tell you!",
+		"* For most of the styles you see, I used Spectre CSS. It's a nice, lightweight library that has fairly minimal styles. As such, it's perfect for me to overwrite with all kinds of other styles as I see fit. You should check it out.",
+		"* I built some component wrappers for existing Spectre CSS styles to improve my developer experience. Like I mentioned earlier, I will probably spend some time in coming posts talking about a component or two.",
+		"*Whew*. Okay then. Next time, I'll try to ramble a little less and spend more time actually talking about something on my site.",
+		"Thanks for reading!"
+	]
+}

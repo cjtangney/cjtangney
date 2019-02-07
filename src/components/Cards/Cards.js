@@ -34,6 +34,10 @@
 			}
 		}
 	}
+
+	future-additions: {
+		for img-left and img-right, add an img-narrow modifier to swap the columns;
+	}
 */
 
 import React from 'react';
@@ -75,6 +79,9 @@ const Card = (props) => {
 		else{classes = 'card';}
 		return classes;
 	}
+	const getID = () => {
+		if(props.id){return(props.id)}
+	}
 	const getCard = () => {
 		let content = [];
 		let classes = getClasses();
@@ -100,10 +107,10 @@ const Card = (props) => {
 
 			return(
 				<div className='columns'>
-					<div className='column col-md-12 col-lg-7 col-8'>
+					<div className='column col-md-12 col-lg-8 col-8'>
 						{imgContent}
 					</div>
-					<div className='column col-md-12 col-lg-5 col-4'>
+					<div className='column col-md-12 col-lg-4 col-4'>
 						{content}
 					</div>
 				</div>
@@ -117,10 +124,10 @@ const Card = (props) => {
 
 			return(
 				<div className='columns'>
-					<div className='column col-md-12 col-lg-5 col-4'>
+					<div className='column col-md-12 col-lg-4 col-4'>
 						{content}
 					</div>
-					<div className='column col-md-12 col-lg-7 col-8'>
+					<div className='column col-md-12 col-lg-8 col-8'>
 						{imgContent}
 					</div>
 				</div>
@@ -134,7 +141,7 @@ const Card = (props) => {
 
 	return (
 		/* CARD */
-		<div className={getClasses()}>
+		<div className={getClasses()} id={getID()}>
 			{getCard()}
 		</div>
 	);
@@ -143,6 +150,7 @@ const Card = (props) => {
 /* prop info
 */
 Card.propTypes = {
+	id: propTypes.string,
 	classes: propTypes.string,
 	cardHeader: propTypes.oneOfType([propTypes.string, propTypes.object]),
 	cardBody: propTypes.oneOfType([propTypes.string, propTypes.object]),

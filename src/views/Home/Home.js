@@ -2,9 +2,10 @@
 */
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Card } from '../../components/Cards/Cards';
-import { Modal } from '../../components/Modal/Modal';
-import { Gallery } from '../../components/Gallery/Gallery';
+//import { Modal } from '../../components/Modal/Modal';
+//import { Gallery } from '../../components/Gallery/Gallery';
 import './Home.css';
 
 const PUBLIC = process.env.PUBLIC_URL;
@@ -13,42 +14,25 @@ class Home extends React.Component {
   render() {
     return (
       <div id='card-container'>
-        {/* card component */}
         <Card 
-          classes='text-center full-page img-top'
-          imgSrc={PUBLIC + '/img/puppy.jpg'} 
-          altTxt='A puppy'  
+          classes='img-left'
+          imgSrc={PUBLIC + '/img/headshot.jpg'} 
+          altTxt='My Headshot'  
           cardBody={
-            <div>
-              <h1>Hey there!</h1>
-              <p className='text-large'>My name is Connor.</p>
-              <p className='text-large'>Welcome to my little corner of the Internet. I'm in the middle of some construction here, so check back soon. In the mean time, why not check out these puppies and kittens? Who doesn't love puppies and kittens?!</p>
+            <div className='container'>
+              <h1 className='text-center'>Hey there!</h1>
+              <p className='text-large'>I'm Connor, and it seems like you've stumbled upon my little corner of the Internet. Welcome! When I set out to create this site, I initially intended for it to be a resource that I could provide when someone asked to learn a little bit about me. After all, carrying around business cards in this day and age is a little... gauche.</p>
+              <p className='text-large'>If you're here looking for my credentials, check out one of the links below. Otherwise, feel free to check out my blog or look at some of my current and past work.</p>
+              <div className='btn-group'>
+              	{/*<Link to='/resume' className='btn' onClick={event => window.scrollTo(0,0)}>Resume</Link>*/}
+                <Link to='/blog' className='btn' onClick={event => window.scrollTo(0,0)}>About This Site</Link>
+                <Link to='/work' className='btn' onClick={event => window.scrollTo(0,0)}>My Work</Link>
+                {/*<Link to='#' className='btn'>About Me</Link>*/}
+              </div>
             </div>
-          } 
-          cardFooter={
-            <button className='btn puppies-and-kittens' onClick={ event => {
-            	document.getElementById('gallery-modal').classList.add('active');
-            	document.body.classList.add('prevent-scroll');
-            }}>Heck yea, baby animals!</button>
           }
       	/>
-      <Modal 
-        id='gallery-modal'
-        classes='full-page'
-        modalTitle='Puppies and Kittens!'
-        modalContent={
-          <Gallery
-            classes='column col-lg-12 col-xl-10 col-7 col-mx-auto' 
-            imgs={
-              [PUBLIC + '/img/p-01.jpg', PUBLIC + '/img/p-02.jpg',
-              PUBLIC + '/img/p-03.jpg', PUBLIC + '/img/p-04.jpg',
-              PUBLIC + '/img/p-05.jpg', PUBLIC + '/img/k-01.jpg',
-              PUBLIC + '/img/k-02.jpg', PUBLIC + '/img/k-03.jpg',
-              PUBLIC + '/img/k-04.jpg', PUBLIC + '/img/k-05.jpg']} 
-          />
-        }
-      />
-    </div>
+    	</div>
     );
   }
 }
