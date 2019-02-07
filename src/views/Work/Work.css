@@ -17,3 +17,15 @@
 #work-container{
 	padding-bottom: 2.8rem;
 }
+.blog-post-img{
+	border-radius: 0.1rem;
+	margin: 0;
+	margin-left: 0.4rem;
+	margin-right: 0.4rem;
+}
+.blog-post-img>img{
+	border: .03rem solid #666568;
+}
+.blog-post-img>figcaption{
+	margin-bottom: 0.4rem;
+}
