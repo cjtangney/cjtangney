@@ -20,6 +20,7 @@ class Work extends React.Component {
 
     this.state = {
       posts: [],
+      loading: true
     }
 
     this.handleScroll = this.handleScroll.bind(this);
@@ -46,6 +47,9 @@ class Work extends React.Component {
               })
             })
         })
+        this.setState({
+          loading: false
+        })
       }); 
   }
   componentWillUnmount() {
@@ -55,6 +59,15 @@ class Work extends React.Component {
     if (this.props.match.path === '/work'){
       let headerCardFooter = document.getElementById('work-header').children[2];
       window.scrollY > 236 ? headerCardFooter.classList.add('sticky') : headerCardFooter.classList.remove('sticky');
+    }
+  }
+  getBody = (props) => {
+    if(this.state.loading){
+      return(<h1 className='text-center'>I'm loading right now!<br /><br/>:]</h1>)
+    }else{
+      return(
+        <WorkHome {...props} posts={this.state.posts} />
+      )
     }
   }
   render() {
@@ -80,7 +93,7 @@ class Work extends React.Component {
                     }
                   />
                 </div>
-                <WorkHome {...e} posts={this.state.posts} />
+                {this.getBody(e)}
               </div>
             )} />
             <Route path='/work/:folder' render={e=>(
