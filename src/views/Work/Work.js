@@ -48,24 +48,26 @@ class Work extends React.Component {
   render() {
     return (
       <div id='card-container'>
-        <Card 
-          id='work-header'
-          classes='text-center'
-          cardHeader='Welcome!' 
-          cardBody={
-            <div className='container'>
-              <p className='text-large'>During my time, I've worked on a fair number of projects -- both personally and professionally. Every once in awhile, I'll work on something that resonates with me so much that I can't help but come here to write about it. For some reason, I have it in my head that people actually want to read about these projects!</p>
-              <p className='text-large'>If you happen to find anything in these projects that inspires you, if you have any questions about what I did this or that, or if you have a suggestion on how you think I could improve something, send me a message at connor@cjtangney.me!</p>
-            </div>
-          }
-          cardFooter={
-            <Link to='/' className='btn' onClick={event => window.scrollTo(0,0)}>Take me home!</Link>
-          }
-        />
         <div id='work-container'>
           <div className='columns'>
             <Route exact path='/work' render={e=>(
+              <div>
+              <Card 
+                id='work-header'
+                classes='column col-xs-12 col-mx-auto'
+                cardHeader='Welcome!' 
+                cardBody={
+                  <div className='container'>
+                    <p>During my time, I've worked on a fair number of projects -- both personally and professionally. Every once in awhile, I'll work on something that resonates with me so much that I can't help but come here to write about it. For some reason, I have it in my head that people actually want to read about these projects!</p>
+                    <p>If you happen to find anything in these projects that inspires you, if you have any questions about what I did this or that, or if you have a suggestion on how you think I could improve something, send me a message at connor@cjtangney.me!</p>
+                  </div>
+                }
+                cardFooter={
+                  <Link to='/' className='btn float-right' onClick={event => window.scrollTo(0,0)}><i class="material-icons">home</i></Link>
+                }
+              />
               <WorkHome {...e} posts={this.state.posts} />
+              </div>
             )} />
             <Route path='/work/:folder' render={e=>(
               <WorkProject {...e} posts={this.state.posts}/>

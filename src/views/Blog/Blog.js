@@ -82,7 +82,7 @@ class Blog extends React.Component {
             {this.state.formattedPosts}
           </div>
           <div className='column col-xs-12 col-sm-11 col-md-11 col-lg-10 col-xl-9 col-9 col-mx-auto text-center'>
-            <Link to='/' className='btn k-go-home'>Take me home!</Link>
+            <Link to='/' className='btn k-go-home'><i class="material-icons">home</i></Link>
           </div>
         </div>
         <ScrollToTop />

@@ -33,7 +33,7 @@ class WorkProject extends React.Component {
     currentPost = currentPost.join(' ');
     return(
       <Card
-        classes='column col-sm-12 col-md-10 col-8 col-mx-auto'
+        classes='col-xs-12 col-md-10 col-10 col-mx-auto work-card'
         cardHeader={postName}
         cardBody={
           <div className='container' dangerouslySetInnerHTML={{ __html: currentPost }}>
