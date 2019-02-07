@@ -21,8 +21,11 @@ class Work extends React.Component {
     this.state = {
       posts: [],
     }
+
+    this.handleScroll = this.handleScroll.bind(this);
   }
   componentDidMount(){
+    window.addEventListener('scroll', this.handleScroll);
     workController.getFolders('/work/')
       .then(res => {
         res.data.forEach(folder => {
@@ -45,6 +48,15 @@ class Work extends React.Component {
         })
       }); 
   }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+  handleScroll = () => {
+    if (this.props.match.path === '/work'){
+      let headerCardFooter = document.getElementById('work-header').children[2];
+      window.scrollY > 236 ? headerCardFooter.classList.add('sticky') : headerCardFooter.classList.remove('sticky');
+    }
+  }
   render() {
     return (
       <div id='card-container'>
@@ -52,21 +64,23 @@ class Work extends React.Component {
           <div className='columns'>
             <Route exact path='/work' render={e=>(
               <div>
-              <Card 
-                id='work-header'
-                classes='column col-xs-12 col-mx-auto'
-                cardHeader='Welcome!' 
-                cardBody={
-                  <div className='container'>
-                    <p>During my time, I've worked on a fair number of projects -- both personally and professionally. Every once in awhile, I'll work on something that resonates with me so much that I can't help but come here to write about it. For some reason, I have it in my head that people actually want to read about these projects!</p>
-                    <p>If you happen to find anything in these projects that inspires you, if you have any questions about what I did this or that, or if you have a suggestion on how you think I could improve something, send me a message at connor@cjtangney.me!</p>
-                  </div>
-                }
-                cardFooter={
-                  <Link to='/' className='btn float-right' onClick={event => window.scrollTo(0,0)}><i class="material-icons">home</i></Link>
-                }
-              />
-              <WorkHome {...e} posts={this.state.posts} />
+                <div className='container' id='work-header-container'>
+                  <Card 
+                    id='work-header'
+                    classes='column col-xs-12 col-mx-auto'
+                    cardHeader='Welcome!' 
+                    cardBody={
+                      <div className='container'>
+                        <p>During my time, I've worked on a fair number of projects -- both personally and professionally. Every once in awhile, I'll work on something that resonates with me so much that I can't help but come here to write about it. For some reason, I have it in my head that people actually want to read about these projects!</p>
+                        <p>If you happen to find anything in these projects that inspires you, if you have any questions about what I did this or that, or if you have a suggestion on how you think I could improve something, send me a message at connor@cjtangney.me!</p>
+                      </div>
+                    }
+                    cardFooter={
+                      <Link to='/' className='btn float-right' onClick={event => window.scrollTo(0,0)}><i className="material-icons">home</i></Link>
+                    }
+                  />
+                </div>
+                <WorkHome {...e} posts={this.state.posts} />
               </div>
             )} />
             <Route path='/work/:folder' render={e=>(
