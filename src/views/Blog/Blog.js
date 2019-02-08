@@ -27,6 +27,21 @@ class Blog extends React.Component {
   }
   componentDidMount(){
     let blogController = require('../../controllers/Blog/Blog');
+    blogController.getFiles('https://api.github.com/repositories/166829216/contents/public/blog_posts')
+      .then(res => {
+        for(let file of res.data){
+          blogController.getPost('https://raw.githubusercontent.com/cjtangney/cjt2019/master/' + file.path)
+            .then(res => {
+              let data = this.state.posts;
+              data.push(res.data);
+              this.setState({
+                posts: data
+              });
+              this.formatPosts();
+            })
+        }
+      })
+    /* the following code block download from the local public folder * /
     blogController.getFiles('/blog_posts/')
       .then(res => {
         res.data.forEach(file => {
@@ -41,6 +56,7 @@ class Blog extends React.Component {
             })
         });
       })
+    */
   }
   formatPosts = () => {
     //showdown is the markdown viewer
