@@ -13,7 +13,7 @@ class WorkProject extends React.Component {
   findPost = () => {
     let postName = '';
     let postData = this.props.posts.filter(post => {
-      return(post.folder === this.props.match.params.folder)
+      return(post.folder.name === this.props.match.params.folder)
     });
     if(postData.length){
       postName = postData[0].data.name;
