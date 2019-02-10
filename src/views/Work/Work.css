@@ -4,6 +4,11 @@
 #work-header{
 	margin-top: 0;
 }
+#work-header .card-footer>a{
+	padding: 1rem 3rem 2rem 3rem;
+	-webkit-transition: padding 0.1s linear;
+  transition: padding 0.1s linear;
+}
 #work-header .card-footer.sticky{
 	position: fixed;
 	top: 0;
@@ -11,8 +16,12 @@
 	right: 0;
 	background: inherit;
 	box-shadow: inherit;
-	padding-top: 1.2rem;
-	padding-right: 1.2rem;
+	padding: 1rem 0.5rem 0.5rem 0.5rem
+}
+#work-header .card-footer.sticky>a{
+	padding: .4rem .8rem;
+	-webkit-transition: padding 0.1s linear;
+  transition: padding 0.1s linear;
 }
 #work-container{
 	padding-bottom: 2.8rem;

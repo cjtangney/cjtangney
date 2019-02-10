@@ -85,7 +85,8 @@ class Work extends React.Component {
   handleScroll = () => {
     if (this.props.match.path === '/work'){
       let headerCardFooter = document.getElementById('work-header').children[2];
-      window.scrollY > 236 ? headerCardFooter.classList.add('sticky') : headerCardFooter.classList.remove('sticky');
+      let stickyScrollHeight = document.getElementById('work-header').children[0].scrollHeight + document.getElementById('work-header').children[1].scrollHeight;
+      window.scrollY > stickyScrollHeight ? headerCardFooter.classList.add('sticky') : headerCardFooter.classList.remove('sticky');
     }
   }
   getBody = (props) => {
