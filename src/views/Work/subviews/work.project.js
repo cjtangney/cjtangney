@@ -4,6 +4,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card } from '../../../components/Cards/Cards';
+import { Loader } from '../../../components/Loader/Loader';
 import '../Work.css';
 
 const PUBLIC = process.env.PUBLIC_URL;
@@ -31,13 +32,27 @@ class WorkProject extends React.Component {
     });
     //join the post array to remove commas from output
     currentPost = currentPost.join(' ');
-    return(
+    return currentPost.length ? (
       <Card
         classes='col-xs-12 col-md-10 col-10 col-mx-auto work-card'
         cardHeader={postName}
         cardBody={
           <div className='container' dangerouslySetInnerHTML={{ __html: currentPost }}>
             {/* the post body will print here */}
+          </div>
+        }
+        cardFooter={
+          <Link to='/work' className='btn' onClick={event => window.scrollTo(0,0)}>Go back</Link>
+        }
+        key={'project-' + this.props.match.params.folder}
+      />
+    ) : (
+      <Card
+        classes='col-xs-12 col-md-10 col-10 col-mx-auto work-card'
+        cardHeader={postName}
+        cardBody={
+          <div className='container'>
+            <Loader classes='loading-lg blog-loader'/>
           </div>
         }
         cardFooter={

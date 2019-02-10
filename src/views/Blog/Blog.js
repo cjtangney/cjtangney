@@ -11,6 +11,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card } from '../../components/Cards/Cards';
 import { ScrollToTop } from '../../components/ScrollToTop/ScrollToTop';
+import { Loader } from '../../components/Loader/Loader';
 import './Blog.css';
 
 const PUBLIC = process.env.PUBLIC_URL;
@@ -93,12 +94,21 @@ class Blog extends React.Component {
   render() {
     return (
       <div id='card-container'>
-        <div className='columns'>
-          <div id='blog-container'>
-            {this.state.formattedPosts}
-          </div>
-          <div className='column col-xs-12 col-sm-11 col-md-11 col-lg-10 col-xl-9 col-9 col-mx-auto text-center'>
-            <Link to='/' className='btn k-go-home'><i className="material-icons">home</i></Link>
+        <div id='blog-container'>
+          <div className='columns'>
+            {
+              this.state.loading ? (
+                <Card
+                  classes={'col-xs-12 col-md-10 col-10 col-mx-auto work-card'}
+                  cardBody={
+                    <Loader classes='loading-lg blog-loader' />
+                  }
+                />
+              ) : (this.state.formattedPosts)
+            }
+            <div className='column col-xs-12 col-sm-11 col-md-11 col-lg-10 col-xl-9 col-9 col-mx-auto text-center'>
+              <Link to='/' className='btn k-go-home'><i className="material-icons">home</i></Link>
+            </div>
           </div>
         </div>
         <ScrollToTop />

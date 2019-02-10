@@ -7,6 +7,7 @@ import Route from 'react-router-dom/Route';
 import { Link } from 'react-router-dom';
 import { Card } from '../../components/Cards/Cards';
 import { ScrollToTop } from '../../components/ScrollToTop/ScrollToTop';
+import { Loader } from '../../components/Loader/Loader';
 import WorkHome from './subviews/work.home';
 import WorkProject from './subviews/work.project';
 import './Work.css';
@@ -91,7 +92,14 @@ class Work extends React.Component {
   }
   getBody = (props) => {
     if(this.state.loading){
-      return(<h1 className='text-center'>I'm loading right now!<br /><br/>:]</h1>)
+      return(
+        <Card
+          classes={'col-xs-12 col-md-10 col-10 col-mx-auto work-card'}
+          cardBody={
+            <Loader classes='loading-lg work-card-loader' />
+          }
+        />
+      )
     }else{
       return(
         <WorkHome {...props} posts={this.state.posts} />
