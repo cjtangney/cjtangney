@@ -1,5 +1,15 @@
-.toTheTop{
-	position: absolute;
+.toTheTop,
+.toTheTop:disabled{
+	position:fixed;
 	bottom: 1.4rem;
 	right: 1.6rem;
+	opacity: 0;
+	-webkit-transition: opacity 0.5s linear;
+  transition: opacity 0.5s linear;
+}
+
+.toTheTop.show{
+	opacity: 1;
+	-webkit-transition: opacity 0.5s linear;
+  transition: opacity 0.5s linear;
 }

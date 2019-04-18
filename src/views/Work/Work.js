@@ -28,7 +28,7 @@ class Work extends React.Component {
   }
   componentDidMount(){
     window.addEventListener('scroll', this.handleScroll);
-    /* this block of code will download the json files from github */
+    /* this block of code will download the json files from github //
     workController.getFolders('https://api.github.com/repos/cjtangney/cjt2019/contents/public/work')
       .then(res => {
         for(let folder of res.data){
@@ -53,7 +53,8 @@ class Work extends React.Component {
           loading: false
         })
       });
-    /* this block of code will use local json files from the public dir //
+    */  
+    /* this block of code will use local json files from the public dir */
     workController.getFolders('/work/')
       .then(res => {
         res.data.forEach(folder => {
@@ -77,17 +78,25 @@ class Work extends React.Component {
         this.setState({
           loading: false
         })
-      }); 
-    */
+      });
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
   }
   handleScroll = () => {
     if (this.props.match.path === '/work'){
-      let headerCardFooter = document.getElementById('work-header').children[2];
-      let stickyScrollHeight = document.getElementById('work-header').children[0].scrollHeight + document.getElementById('work-header').children[1].scrollHeight;
-      window.scrollY > stickyScrollHeight ? headerCardFooter.classList.add('sticky') : headerCardFooter.classList.remove('sticky');
+      const headerCardFooter = document.getElementById('work-header').children[2];
+      const toTheTop = document.getElementById('to-the-top');
+      const stickyScrollHeight = document.getElementById('work-header').children[0].scrollHeight + document.getElementById('work-header').children[1].scrollHeight;
+      if(window.scrollY >= stickyScrollHeight) {
+        headerCardFooter.classList.add('sticky');
+        toTheTop.classList.add('show');
+        toTheTop.removeAttribute('disabled');
+      } else {
+        headerCardFooter.classList.remove('sticky');
+        toTheTop.classList.remove('show');
+        toTheTop.setAttribute('disabled', true);
+      }
     }
   }
   getBody = (props) => {
@@ -121,11 +130,11 @@ class Work extends React.Component {
                     cardBody={
                       <div className='container'>
                         <p>During my time, I've worked on a fair number of projects -- both personally and professionally. Every once in awhile, I'll work on something that resonates with me so much that I can't help but come here to write about it. For some reason, I have it in my head that people actually want to read about these projects!</p>
-                        <p>If you happen to find anything in these projects that inspires you, if you have any questions about what I did this or that, or if you have a suggestion on how you think I could improve something, send me a message at connor@cjtangney.me!</p>
+                        <p>If you happen to find anything in these projects that inspires you, if you have any questions about why I did this or that, or if you have a suggestion on how you think I could improve something, <a href='mailto:connor@cjtangney.me'>send me a message</a>! I'm always keen to talk tech or learn something new.</p>
                       </div>
                     }
                     cardFooter={
-                      <Link to='/' className='btn float-right' onClick={event => window.scrollTo(0,0)}><i className="material-icons">home</i></Link>
+                      <Link to='/' className='btn float-right' onClick={event => window.scrollTo(0,0)}><i className='material-icons'>home</i></Link>
                     }
                   />
                 </div>

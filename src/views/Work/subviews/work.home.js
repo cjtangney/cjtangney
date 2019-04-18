@@ -24,7 +24,7 @@ class WorkHome extends React.Component {
       currentPost = currentPost.join(' ');
       //determine which side the image should display on
       imgDir === 'right' ? imgDir = 'left' : imgDir = 'right';
-      /* the following code block will download images from github */
+      /* the following code block will download images from github * /
       let downloadUrl = 'public/img' + post.folder.path.substr(post.folder.path.indexOf('\/work'));
       downloadUrl = 'https://raw.githubusercontent.com/cjtangney/cjt2019/master/'+ downloadUrl + '/thumbnail.jpg';
       formattedThumbnails.push(
@@ -35,7 +35,7 @@ class WorkHome extends React.Component {
           cardHeader={post.data.name}
           cardBody={
             <div className='container' id={'work-card-'+i} dangerouslySetInnerHTML={{ __html: currentPost }}>
-              {/* the post body will print here */}
+              {/* the post body will print here * /}
             </div>
           }
           cardFooter={
@@ -44,7 +44,8 @@ class WorkHome extends React.Component {
           key={'work-card-'+i}
         />
       )
-      /* the following code block will use local files in the public dir * /
+      */
+      /* the following code block will use local files in the public dir */
       formattedThumbnails.push(
         <Card
           classes={'col-xs-12 col-md-10 col-10 img-' + imgDir + ' col-mx-auto work-card'}
@@ -53,7 +54,7 @@ class WorkHome extends React.Component {
           cardHeader={post.data.name}
           cardBody={
             <div className='container' id={'work-card-'+i} dangerouslySetInnerHTML={{ __html: currentPost }}>
-              {/* the post body will print here * /}
+              {/* the post body will print here */}
             </div>
           }
           cardFooter={
@@ -62,7 +63,6 @@ class WorkHome extends React.Component {
           key={'work-card-'+i}
         />
       )
-      */
     })
     return(formattedThumbnails);
   }

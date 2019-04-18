@@ -26,7 +26,7 @@ const ScrollToTop = (props) => {
     });
   }  
 	return(
-	  <button className='btn tooltip toTheTop' data-tooltip='To the top!' onClick={ event => toTheTop(event) }><i className='icon icon-arrow-up'></i></button>
+	  <button id='to-the-top' className='btn tooltip toTheTop' data-tooltip='To the top!' onClick={ event => toTheTop(event) } disabled><i className='icon icon-arrow-up'></i></button>
 	)
 }
 

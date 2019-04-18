@@ -6,8 +6,8 @@
 }
 #work-header .card-footer>a{
 	padding: 1rem 3rem 2rem 3rem;
-	-webkit-transition: padding 0.1s linear;
-  transition: padding 0.1s linear;
+	-webkit-transition: padding 0.2s linear;
+  transition: padding 0.2s linear;
 }
 #work-header .card-footer.sticky{
 	position: fixed;
@@ -16,12 +16,13 @@
 	right: 0;
 	background: inherit;
 	box-shadow: inherit;
-	padding: 1rem 0.5rem 0.5rem 0.5rem
+	padding: 1rem 1.2rem 0.8rem 0.5rem;
+	margin-bottom: 1rem;
 }
 #work-header .card-footer.sticky>a{
-	padding: .4rem .8rem;
-	-webkit-transition: padding 0.1s linear;
-  transition: padding 0.1s linear;
+	padding: 1rem 6rem 2rem 6rem;
+	-webkit-transition: padding 0.2s linear;
+  transition: padding 0.2s linear;
 }
 #work-container{
 	padding-bottom: 2.8rem;
