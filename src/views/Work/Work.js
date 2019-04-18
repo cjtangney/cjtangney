@@ -28,7 +28,7 @@ class Work extends React.Component {
   }
   componentDidMount(){
     window.addEventListener('scroll', this.handleScroll);
-    /* this block of code will download the json files from github //
+    /* this block of code will download the json files from github */
     workController.getFolders('https://api.github.com/repos/cjtangney/cjt2019/contents/public/work')
       .then(res => {
         for(let folder of res.data){
@@ -53,8 +53,7 @@ class Work extends React.Component {
           loading: false
         })
       });
-    */  
-    /* this block of code will use local json files from the public dir */
+    /* this block of code will use local json files from the public dir * /
     workController.getFolders('/work/')
       .then(res => {
         res.data.forEach(folder => {
@@ -79,6 +78,7 @@ class Work extends React.Component {
           loading: false
         })
       });
+    */
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);

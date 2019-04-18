@@ -2,7 +2,7 @@
   "name": "cjt2019",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://cjtangney.github.io/cjt2019/",
+  "homepage": "https://cjtangney.me",
   "dependencies": {
     "axios": "^0.18.0",
     "express": "^4.16.4",
