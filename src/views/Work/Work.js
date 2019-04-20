@@ -21,6 +21,7 @@ class Work extends React.Component {
 
     this.state = {
       posts: [],
+      stickyScrollHeight: undefined,
       loading: true
     }
 
@@ -50,7 +51,8 @@ class Work extends React.Component {
             })
         }
         this.setState({
-          loading: false
+          loading: false,
+          stickyScrollHeight: this.getPos(document.getElementById('home-btn')).y
         })
       });
     /* this block of code will use local json files from the public dir * /
@@ -84,18 +86,25 @@ class Work extends React.Component {
     window.removeEventListener('scroll', this.handleScroll);
   }
   handleScroll = () => {
-    if (this.props.match.path === '/work'){
-      const headerCardFooter = document.getElementById('work-header').children[2];
-      const toTheTop = document.getElementById('to-the-top');
-      const stickyScrollHeight = document.getElementById('work-header').children[0].scrollHeight + document.getElementById('work-header').children[1].scrollHeight;
-      if(window.scrollY >= stickyScrollHeight) {
-        headerCardFooter.classList.add('sticky');
+    const toTheTop = document.getElementById('to-the-top');
+    if(this.props.match.path === '/work'){
+      const homeBtn = document.getElementById('home-btn');
+      const workBody = document.getElementById('work-body');
+      if(window.scrollY >= this.state.stickyScrollHeight) {
+        homeBtn.classList.add('sticky');
+        workBody.classList.add('sticky');
         toTheTop.classList.add('show');
         toTheTop.removeAttribute('disabled');
       } else {
-        headerCardFooter.classList.remove('sticky');
+        homeBtn.classList.remove('sticky');
+        workBody.classList.remove('sticky');
         toTheTop.classList.remove('show');
         toTheTop.setAttribute('disabled', true);
+      }
+    } else {
+      if(toTheTop.hasAttribute('disabled')){
+        toTheTop.classList.add('show');
+        toTheTop.removeAttribute('diabled');
       }
     }
   }
@@ -115,6 +124,12 @@ class Work extends React.Component {
       )
     }
   }
+  getPos = (el) => {
+    for (var lx=0, ly=0;
+      el != null;
+      lx += el.offsetLeft, ly += el.offsetTop, el = el.offsetParent);
+    return {x: lx,y: ly};
+  }
   render() {
     return (
       <div id='card-container'>
@@ -133,12 +148,16 @@ class Work extends React.Component {
                         <p>If you happen to find anything in these projects that inspires you, if you have any questions about why I did this or that, or if you have a suggestion on how you think I could improve something, <a href='mailto:connor@cjtangney.me'>send me a message</a>! I'm always keen to talk tech or learn something new.</p>
                       </div>
                     }
-                    cardFooter={
-                      <Link to='/' className='btn float-right' onClick={event => window.scrollTo(0,0)}><i className='material-icons'>home</i></Link>
-                    }
                   />
                 </div>
-                {this.getBody(e)}
+                <div className='container home-button'>
+                  <div className='column col-xs-8 col-8 col-mx-auto text-center'>
+                    <Link to='/' className='btn' id='home-btn' onClick={event => window.scrollTo(0,0)}><i className='material-icons'>home</i></Link>
+                  </div>
+                </div>
+                <div className='container' id='work-body'>
+                  {this.getBody(e)}
+                </div>
               </div>
             )} />
             <Route path='/work/:folder' render={e=>(
