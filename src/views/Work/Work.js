@@ -52,7 +52,7 @@ class Work extends React.Component {
         }
         this.setState({
           loading: false,
-          stickyScrollHeight: this.getPos(document.getElementById('home-btn')).y
+          stickyScrollHeight: (this.getPos(document.getElementById('home-btn')).y)
         })
       });
     /* this block of code will use local json files from the public dir * /
@@ -151,7 +151,7 @@ class Work extends React.Component {
                   />
                 </div>
                 <div className='container home-button'>
-                  <div className='column col-xs-8 col-8 col-mx-auto text-center'>
+                  <div className='column col-xs-12 col-12 col-mx-auto text-center'>
                     <Link to='/' className='btn' id='home-btn' onClick={event => window.scrollTo(0,0)}><i className='material-icons'>home</i></Link>
                   </div>
                 </div>

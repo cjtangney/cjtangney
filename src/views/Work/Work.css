@@ -1,3 +1,6 @@
+#work-header-container{
+	padding-right: 0;
+}
 #work-header{
 	margin-top: 0;
 }
@@ -7,6 +10,7 @@
 #work-body{
 	display: block;
 	margin-top: 2rem;
+	padding-right: 0;
 }
 #home-btn {
 	padding: 0.8rem 3rem 0.4rem 3rem;
@@ -28,8 +32,8 @@
 	color: #F1F1F1;
 }
 #home-btn.sticky {
-	width: 70%;
-	transition: width 1s;
+	width: 100%;
+	transition: width 0.75s;
 }
 .blog-post-img{
 	border-radius: 0.1rem;
@@ -48,6 +52,9 @@
 	padding: 0;
 	position: sticky;
 	top: 0;
+}
+.home-button>.column{
+	padding-right: 0;
 }
 .home-button .btn.sticky{
 	padding-left: 1.2rem;
