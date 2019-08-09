@@ -9,7 +9,7 @@
 		"BulmaIO",
 		"Papaparse"
 	],
-	"description": "This project was developed as an exercise in parsing, storing, and displaying large data sets using stateless React Components. TSA Claims Data between the years of 2010 and 2013 was used as a sample. This data can be downloaded [here](https://www.dhs.gov/sites/default/files/publications/claims-2010-2013_0.xls \"Download\"). The XLS file was converted to CSV before being loaded into the application.",
+	"description": "This project was developed as an exercise in parsing, storing, and displaying large data sets using React. TSA Claims Data between the years of 2010 and 2013 was used as a sample. This data can be downloaded [here](https://www.dhs.gov/sites/default/files/publications/claims-2010-2013_0.xls \"Download\"). The XLS file was converted to CSV before being loaded into the application.",
 	"body": [
 		"A little about this project, you say? Hrm. Where to start...",
 		"This project, initially, was not one that I came up with on my own. A few years back when I was applying for jobs, I received a request to complete a coding challenge in order to determine if I was up to snuff. Spoiler alert: I didn't get the job. Didn't seem like a great fit for me at the time. But! The coding challenge they had left me with intriguied me. Having spent a fair amount of time constructing data types in a past life, I was eager to try and wrap my head around how I would approach their request.",
