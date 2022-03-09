@@ -122,23 +122,6 @@ async function renderIndexes(currentPath, _LAYOUT_) {
                     });
                 });
             }
-
-            // Copy the demo config file if it exists
-            if (child.match(/demo.config.json/)) {
-                fs.copyFile(
-                    path.resolve(`${currentPath}/${child}`),
-                    path.resolve(`${outputPath}/${child}`),
-                    (err) => {
-                        if (err) {
-                            console.error(err);
-                            return;
-                        }
-
-                        /* eslint-disable-next-line */
-                        console.log('📋    Copying demo configurationg for: ', path.resolve(outputPath));
-                    }
-                );
-            }
         });
     });
 }

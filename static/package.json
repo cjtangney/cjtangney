@@ -11,7 +11,7 @@
     "lint": "eslint src/**/*{.ts,.tsx}",
     "generate": "stencil generate",
     "serve": "stencil build --prerender && node build && stencil build --dev --watch --serve",
-    "watch": "onchange \"src/components/Foundation/.scss/*.scss\" \"src/html/**/*.html\" \"src/**/*{.ts,.tsx}\" -- npm run lint && npm run build:dev",
+    "watch": "onchange \"src/components/**/*.scss\" \"src/html/**/*.html\" \"src/**/*{.ts,.tsx}\" -- npm run lint && npm run build:dev",
     "build:prod": "stencil build --prod --prerender && npm run wait && node build",
     "build:dev": "stencil build --dev",
     "build:render": "stencil build --prerender",

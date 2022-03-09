@@ -139,9 +139,9 @@ export class C3Card implements ComponentInterface {
         }
     }
 
-    componentDidRender() {
-        globalThis.resizeObserver.observe(this.root.firstElementChild);
-    }
+    // componentDidRender() {
+    //     globalThis.resizeObserver.observe(this.root.firstElementChild);
+    // }
 
     render() {
         const CardHeader = this.hasHeader && `${this._CARD_HEADER_.tagName.toLowerCase()}`;

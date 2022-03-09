@@ -12,5 +12,5 @@
 
 export default {
     flexBasis: 0.41666666667,
-    minWidth: 350
+    minWidth: 250
 };
