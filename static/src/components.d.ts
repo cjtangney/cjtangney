@@ -25,7 +25,13 @@ export namespace Components {
           * Should the card be full bleed?
          */
         "fullBleed": boolean;
+        /**
+          * Determines if the header is inline
+         */
         "headerInline": boolean;
+        /**
+          * Determines if the header is a link
+         */
         "headerLink": boolean;
     }
     interface C3Icon {
@@ -51,6 +57,8 @@ export namespace Components {
           * Image source
          */
         "imgSrc": string;
+    }
+    interface C3Modal {
     }
     interface C3OffCanvas {
     }
@@ -86,6 +94,12 @@ declare global {
         prototype: HTMLC3LazyImgElement;
         new (): HTMLC3LazyImgElement;
     };
+    interface HTMLC3ModalElement extends Components.C3Modal, HTMLStencilElement {
+    }
+    var HTMLC3ModalElement: {
+        prototype: HTMLC3ModalElement;
+        new (): HTMLC3ModalElement;
+    };
     interface HTMLC3OffCanvasElement extends Components.C3OffCanvas, HTMLStencilElement {
     }
     var HTMLC3OffCanvasElement: {
@@ -103,6 +117,7 @@ declare global {
         "c3-card": HTMLC3CardElement;
         "c3-icon": HTMLC3IconElement;
         "c3-lazy-img": HTMLC3LazyImgElement;
+        "c3-modal": HTMLC3ModalElement;
         "c3-off-canvas": HTMLC3OffCanvasElement;
         "static-router": HTMLStaticRouterElement;
     }
@@ -127,7 +142,13 @@ declare namespace LocalJSX {
           * Should the card be full bleed?
          */
         "fullBleed"?: boolean;
+        /**
+          * Determines if the header is inline
+         */
         "headerInline"?: boolean;
+        /**
+          * Determines if the header is a link
+         */
         "headerLink"?: boolean;
     }
     interface C3Icon {
@@ -154,6 +175,8 @@ declare namespace LocalJSX {
          */
         "imgSrc"?: string;
     }
+    interface C3Modal {
+    }
     interface C3OffCanvas {
         /**
           * Toggles visibilty of the panel
@@ -171,6 +194,7 @@ declare namespace LocalJSX {
         "c3-card": C3Card;
         "c3-icon": C3Icon;
         "c3-lazy-img": C3LazyImg;
+        "c3-modal": C3Modal;
         "c3-off-canvas": C3OffCanvas;
         "static-router": StaticRouter;
     }
@@ -183,6 +207,7 @@ declare module "@stencil/core" {
             "c3-card": LocalJSX.C3Card & JSXBase.HTMLAttributes<HTMLC3CardElement>;
             "c3-icon": LocalJSX.C3Icon & JSXBase.HTMLAttributes<HTMLC3IconElement>;
             "c3-lazy-img": LocalJSX.C3LazyImg & JSXBase.HTMLAttributes<HTMLC3LazyImgElement>;
+            "c3-modal": LocalJSX.C3Modal & JSXBase.HTMLAttributes<HTMLC3ModalElement>;
             "c3-off-canvas": LocalJSX.C3OffCanvas & JSXBase.HTMLAttributes<HTMLC3OffCanvasElement>;
             "static-router": LocalJSX.StaticRouter & JSXBase.HTMLAttributes<HTMLStaticRouterElement>;
         }

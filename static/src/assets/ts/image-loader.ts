@@ -4,7 +4,7 @@
  *      <picture>
             <source class="img-load-lazy" data-srcset="/img.jpg" type="image/jpeg" />
             <img class="img-load-lazy" data-src="/img.jpg" alt="Image Alt" />
-          </picture>
+        </picture>
     For BG Images: <div class="lazy-load-bg" style="background-image: url('/my-image.jpeg')"></div>
 
     more info: https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video
@@ -90,6 +90,7 @@ export class ImageLoader {
                             lazyImage.srcset = lazyImage.dataset.srcset;
                         }
                         lazyImage.classList.remove('img-load-lazy');
+                        lazyImage.classList.add('img-hydrated');
                         this.lazyImageObserver.unobserve(lazyImage);
                     }
                 }
@@ -105,6 +106,7 @@ export class ImageLoader {
                     }
 
                     entry.target.classList.remove('lazy-load-bg');
+                    entry.target.classList.add('img-hydrated');
                     this.lazyBgObserver.unobserve(entry.target);
                 }
             });
@@ -115,6 +117,7 @@ export class ImageLoader {
         for (let i = 0; i < this.queue.length; i += 1) {
             this.queue[i].setAttribute('src', this.queue[i].getAttribute('data-src'));
             this.queue[i].classList.remove('img-load-lazy');
+            this.queue[i].classList.add('img-hydrated');
         }
 
         for (let i = 0; i < this.backgroundQueue.length; i += 1) {

@@ -35,8 +35,9 @@ const _BREAKPOINTS_ = Object.freeze({
     'giant': 1799
 });
 
-const guid = function guid(): string {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+const guid = () => {
+    const template = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx';
+    return template.replace(/[xy]/g, (c) => {
         // eslint-disable-next-line no-bitwise
         const r = (Math.random() * 16) | 0;
         // eslint-disable-next-line no-bitwise
@@ -46,6 +47,24 @@ const guid = function guid(): string {
     });
 };
 
+/**
+ * Returns an HTMLElement's attributes
+ * in an object containing key:value pairs
+ * for each attr present
+ *
+ * @param node HTMLElement
+ * @returns {Object}
+ */
+const cloneElementAttr = (node: HTMLElement) => {
+    const attrs = {};
+
+    Array.from(node.attributes).forEach((attr) => {
+        attrs[`${attr.nodeName}`] = node?.attributes[`${attr.nodeName}`]?.value;
+    });
+
+    return attrs;
+};
+
 export {
     C3ResizeObserver,
     ImageLoader,
@@ -53,5 +72,6 @@ export {
     _COLORS_,
     _KEYBOARD_,
     _BREAKPOINTS_,
-    guid
+    guid,
+    cloneElementAttr
 };

@@ -82,15 +82,30 @@ export default class C3ResizeObserver extends ResizeObserver {
         }
     }
 
+    /**
+     * Watches the FlexList to determine if
+     * an item has wrapped to a new line. If it has,
+     * and the list is meant to be justified-left,
+     * the observer will att the correct classes to
+     * ensure left padding is consistent.
+     *
+     * @param flexList HTMLElement
+     */
     private wrapInlineListGroup(flexList: HTMLElement) {
         if (window.innerWidth > _BREAKPOINTS_.md) {
             if (flexList.classList.contains('justify-left')) {
                 if ((
                     flexList.firstElementChild as HTMLElement
                 ).offsetHeight
-                    > (
-                        flexList.querySelector('.list-group-item') as HTMLElement
-                    ).offsetHeight
+                    > ((
+                        parseInt(window.getComputedStyle(
+                            flexList.querySelector('.list-group-item') as HTMLElement
+                        ).marginBottom, 10)
+                        + parseInt(window.getComputedStyle(
+                            flexList.querySelector('.list-group-item') as HTMLElement
+                        ).marginTop, 10)
+                        + (flexList.querySelector('.list-group-item') as HTMLElement
+                        ).offsetHeight))
                 ) {
                     let currentY = flexList
                         .querySelector('.list-group-item').getBoundingClientRect().y;

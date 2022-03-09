@@ -1,7 +1,9 @@
-/*eslint-disable*/
 import {
     Component, h, ComponentInterface, State, Prop, Element
 } from '@stencil/core';
+import {
+    cloneElementAttr
+} from 'utils';
 
 @Component({
     tag: 'c3-card',
@@ -43,8 +45,14 @@ export class C3Card implements ComponentInterface {
      */
     @Prop() readonly classes: string;
 
+    /**
+     * Determines if the header is a link
+     */
     @Prop() readonly headerLink: boolean;
 
+    /**
+     * Determines if the header is inline
+     */
     @Prop() readonly headerInline: boolean;
 
     private _CARD_HEADER_: HTMLElement = undefined;
@@ -54,24 +62,6 @@ export class C3Card implements ComponentInterface {
     private _CARD_FOOTER_: HTMLElement = undefined;
 
     private _CARD_CONTENTS_: Array<any>;
-
-    /**
-     * Returns an HTMLElement's attributes
-     * in an object containing key:value pairs
-     * for each attr present
-     *
-     * @param node HTMLElement
-     * @returns {Object}
-     */
-    private cloneElementAttr(node: HTMLElement) {
-        const attrs = {};
-
-        Array.from(node.attributes).forEach((attr) => {
-            attrs[`${attr.nodeName}`] = node?.attributes[`${attr.nodeName}`]?.value;
-        });
-
-        return attrs;
-    }
 
     /**
      * Ensures the header renders correctly depending on whether or not
@@ -84,7 +74,7 @@ export class C3Card implements ComponentInterface {
             || this.headerInline);
         this.isHeaderLink = (this._CARD_HEADER_?.dataset?.inlineLink !== undefined
             || this.headerLink);
-    
+
         if (this.isHeaderLink) {
             this.isHeaderInline = true;
             this._CARD_HEADER_?.classList.add('fake-link');
@@ -169,7 +159,7 @@ export class C3Card implements ComponentInterface {
                 ) && (
                     <div class="row">
                         <div class="col">
-                            <CardHeader {...this.cloneElementAttr(this._CARD_HEADER_)}>
+                            <CardHeader {...cloneElementAttr(this._CARD_HEADER_)}>
                                 {this._CARD_HEADER_.innerHTML}
                             </CardHeader>
                         </div>
@@ -189,7 +179,7 @@ export class C3Card implements ComponentInterface {
                                         : ''}`}
                                 >
                                     <CardMedia
-                                        {...this.cloneElementAttr(this._CARD_MEDIA_)}
+                                        {...cloneElementAttr(this._CARD_MEDIA_)}
                                         innerHTML={this._CARD_MEDIA_.innerHTML}
                                     />
                                 </div>
@@ -203,9 +193,9 @@ export class C3Card implements ComponentInterface {
                                     && (this.cardStyle === 'minimal' || this.isHeaderInline)
                                 ) && (
                                     <div class="row">
-                                        <div class={`col`}>
+                                        <div class="col">
                                             <CardHeader
-                                                {...this.cloneElementAttr(this._CARD_HEADER_)}
+                                                {...cloneElementAttr(this._CARD_HEADER_)}
                                                 innerHTML={this._CARD_HEADER_.innerHTML}
                                             />
                                         </div>
@@ -221,7 +211,7 @@ export class C3Card implements ComponentInterface {
 
                                         return (
                                             <CardContent
-                                                {...this.cloneElementAttr(child)}
+                                                {...cloneElementAttr(child)}
                                                 innerHTML={child.innerHTML}
                                             />
                                         );
@@ -235,7 +225,7 @@ export class C3Card implements ComponentInterface {
                                         <div class="row">
                                             <div class="col">
                                                 <CardFooter
-                                                    {...this.cloneElementAttr(this._CARD_FOOTER_)}
+                                                    {...cloneElementAttr(this._CARD_FOOTER_)}
                                                     innerHTML={this._CARD_FOOTER_.innerHTML}
                                                 />
                                             </div>

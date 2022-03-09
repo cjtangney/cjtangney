@@ -208,6 +208,7 @@
     text-decoration: none;
     color: inherit;
     width: 100%;
+    height: 100%;
     box-shadow: $box-shadow;
     transform: translateY(0);
     transition: linear all $transition-def;
@@ -237,8 +238,6 @@
         margin-bottom: map-get($spacers, 4);
 
         > .c3-card-link {
-            height: 100%;
-
             > c3-card > div[class^="c3-card"] {
                 height: 100%;
                 background-color: $white;

@@ -1,0 +1,151 @@
+.svg-decoration {
+  position: absolute;
+}
+
+#tree-01 {
+  bottom: 0;
+  height: 247px;
+  width: 247px;
+
+  @include media-breakpoint-down(xl) {
+    height: 147px;
+    width: 147px;
+  }
+
+  @include media-breakpoint-down(lg) {
+    height: 127px;
+    width: 127px;
+  }
+
+  @include media-breakpoint-down(md) {
+    height: 78px;
+    width: 78px;
+  }
+}
+
+#tree-02 {
+  bottom: 0;
+  left: 15%;
+  transform: translateX(-15%);
+  height: 183px;
+  width: 183px;
+
+  @include media-breakpoint-down(xl) {
+    height: 108px;
+    width: 108px;
+  }
+
+  @include media-breakpoint-down(lg) {
+    height: 85px;
+    width: 85px;
+  }
+
+  @include media-breakpoint-down(md) {
+    height: 63px;
+    width: 63px;
+    left: 17%;
+    transform: translateX(-17%);
+  }
+
+  @include media-breakpoint-down(sm) {
+    left: 20%;
+    transform: translateX(-20%);
+  }
+}
+
+#tree-03 {
+  bottom: 0;
+  left: 100%;
+  transform: translateX(-100%);
+  height: 319px;
+  width: 319px;
+
+  @include media-breakpoint-down(xl) {
+    height: 250px;
+    width: 250px;
+  }
+
+  @include media-breakpoint-down(lg) {
+    height: 152px;
+    width: 152px;
+  }
+
+  @include media-breakpoint-down(md) {
+    height: 105px;
+    width: 105px;
+  }
+}
+
+#tree-04 {
+  bottom: 0;
+  left: 5%;
+  transform: translateX(-5%);
+  height: 247px;
+  width: 247px;
+
+  @include media-breakpoint-down(xl) {
+    height: 147px;
+    width: 147px;
+  }
+
+  @include media-breakpoint-down(lg) {
+    height: 127px;
+    width: 127px;
+  }
+
+  @include media-breakpoint-down(md) {
+    height: 78px;
+    width: 78px;
+  }
+}
+
+#tree-05 {
+  bottom: 0;
+  left: 71%;
+  transform: translateX(-71%);
+  height: 183px;
+  width: 183px;
+
+  @include media-breakpoint-down(xl) {
+    height: 108px;
+    width: 108px;
+  }
+
+  @include media-breakpoint-down(lg) {
+    height: 85px;
+    width: 85px;
+  }
+
+  @include media-breakpoint-down(md) {
+    height: 63px;
+    width: 63px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    left: 68%;
+    transform: translateX(-68%);
+  }
+}
+
+#tree-06 {
+  bottom: 0;
+  left: 94%;
+  transform: translateX(-94%);
+  height: 319px;
+  width: 319px;
+
+  @include media-breakpoint-down(xl) {
+    height: 250px;
+    width: 250px;
+  }
+
+  @include media-breakpoint-down(lg) {
+    height: 152px;
+    width: 152px;
+  }
+
+  @include media-breakpoint-down(md) {
+    height: 105px;
+    width: 105px;
+  }
+}

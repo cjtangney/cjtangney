@@ -16,6 +16,8 @@
     
         > .list-group-item {
             @include fw-500();
+            padding: 0 math.div(map-get($spacers, 4), 3);
+            margin-bottom: map-get($spacers, 3);
             font-style: italic;
             flex: 1 0 auto;
             border-radius: 0;
@@ -35,7 +37,6 @@
             > .list-group-item {
                 @include text-size(14);
                 padding: map-get($spacers, 1) math.div(map-get($spacers, 4), 3);
-                margin-bottom: map-get($spacers, 2);
             }
         }
 

@@ -75,8 +75,8 @@
  * @param {font-size} $size
  */
 @mixin text-size($size) {
-  font-size: $size + px;
-  font-size: (math.div($size, 16)) + rem;
+  font-size: $size + px !important;
+  font-size: (math.div($size, 16)) + rem !important;
 }
 
 /**

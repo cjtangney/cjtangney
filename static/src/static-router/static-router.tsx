@@ -49,6 +49,8 @@ export class StaticRouter {
     }
 
     private injectBodyScripts(scripts:Array<HTMLScriptElement>) {
+        globalThis.imageLoader.initialize();
+
         scripts.forEach((script, index) => {
             if (!document.body.querySelector(`script#injected-script_${index}`)) {
                 setTimeout(() => {
