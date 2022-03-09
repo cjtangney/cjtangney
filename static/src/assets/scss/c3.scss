@@ -1,0 +1,149 @@
+/** Bootstrap Setup
+ */
+/*#region*/
+
+// Configuration
+@import 'utilities';
+
+// Layout & components
+@import 'root';
+@import 'reboot';
+@import 'type';
+@import 'images';
+@import 'containers';
+@import 'grid';
+@import 'transitions';
+
+// Helpers
+@import 'helpers';
+
+// Utilities
+@import 'utilities/api';
+
+// Custom Styles
+@import 'c3-buttons';
+@import 'c3-nav';
+@import 'c3-dropdown';
+@import 'c3-forms';
+@import 'c3-tables';
+@import 'c3-list-group';
+
+html,
+body {
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+  font-family: $font-family-sans-serif;
+  height: 100%;
+  background-color: #fff !important;
+}
+
+main {
+  height: 100%;
+}
+/*#endregion*/
+
+/** Typography Styles
+ */
+/*#region*/
+a,
+a:hover,
+a:focus {
+  text-decoration: underline;
+  color: $quinary;
+}
+
+a:focus {
+  box-shadow: 0px 0px 0px 3px $black;
+  outline: thin dotted $black;
+  border-radius: $border-radius;
+}
+
+h1, h2, h3, h4, h6 {
+  color: $headings-color-primary;
+}
+
+h5 {
+  color: $headings-color-secondary;
+}
+
+.lead {
+  font-weight: 700;
+}
+/*#endregion*/
+
+/** Base SVG Icon Styles
+ */
+/*#region*/
+span.svg-icon {
+  position: relative;
+
+  svg {
+    @include svg-format(32px, 32px, $gray-100);
+  }
+}
+
+a > svg,
+button > svg {
+  @include svg-format(15px, 15px, $gray-100);
+}
+/*#endregion*/
+
+/** Container Changes
+ */
+/*#region*/
+// For larger container @ bigger sizes
+// @include media-breakpoint-up(giant) {
+//   .container {
+//     max-width: 1640px;
+//   }
+// }
+
+.page-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 100vh;
+  position: relative;
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+
+  .page-slide-link {
+    @include bounce-up(-50%);
+
+    position: absolute;
+    display: block;
+    bottom: 3rem;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%, 0);
+
+    svg {
+      @include svg-format(32px, 32px, $quinary);
+    }
+
+    &:hover,
+    &:focus {
+      animation: bounce-up 1s infinite alternate;
+      -webkit-animation: bounce-up 1s infinite alternate;
+    }
+
+    @include media-breakpoint-down(lg) {
+      display: none;
+    }
+  }
+
+  &.h-50 {
+    min-height: 50vh;
+  }
+
+  @include media-breakpoint-down(lg) {
+    padding-top: 4rem;
+
+    > .container {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+/*#endregion*/

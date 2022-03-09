@@ -1,0 +1,257 @@
+// Import the Base Styles
+@import "card";
+
+// Overrides
+.c3-card {
+    @extend .card;
+
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex: 1 0 0%;
+    margin: 0 0 map-get($spacers, 3);
+    background-color: transparent;
+    border-radius: 0;
+
+    .card-body {
+        min-height: 1px;
+        border-collapse: separate;
+        padding: 0;
+
+        p:last-of-type {
+            margin: 0;
+        }
+
+        > .row {
+            height: 100%;
+            margin: 0;
+
+            > .col {
+                padding: 0;
+            }
+        }
+    }
+
+    .card-media {
+        padding: $card-spacer-x $card-spacer-x 0;
+
+        > * {
+            width: 100%;
+        }
+
+        + .card-content {
+            padding: $card-spacer-y $card-spacer-x $card-spacer-x;
+        }
+
+        &.ratio {
+            align-self: flex-start;
+
+            > iframe {
+                padding: $card-spacer-x $card-spacer-x 0;
+            }
+        }
+    }
+
+    .card-header {
+        word-break: break-word;
+        padding: $card-spacer-y $card-spacer-x;
+
+        &.fs-6 {
+            font-weight: 700;
+            font-family: $font-family-sans-serif;
+        }
+    }
+
+    .card-content {
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 auto;
+        justify-content: flex-start;
+        padding: $card-spacer-x;
+
+        // Inline `.card-header` has different styles
+        .card-header {
+            background-color: transparent;
+            border: none;
+            padding: 0;
+            margin: 0 0 map-get($spacers, 3);
+        }
+    }
+
+    .card-footer {
+        background-color: #fff;
+        border: none;
+        border-radius: 0;
+        padding: $card-spacer-y 0 0;
+        margin-top: auto;
+
+        .btn {
+            margin: 0 map-get($spacers, 3) 0 0;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        &:first-child {
+            padding: 0;
+        }
+    }
+
+    // Modifier / Prop classes
+    /*#region*/
+    &_img-left {
+        @extend .c3-card;
+
+        .card-body > .row > .col {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .card-media {
+            padding: $card-spacer-x;
+            flex: 1 0 map-get($column-flex-basis, 5);
+            min-width: $card-media-max-width;
+
+            + .card-content {
+                flex: 1 0 map-get($column-flex-basis, 7);
+                padding: $card-spacer-x;
+            }
+
+            &.ratio {
+                align-self: flex-start;
+
+                > iframe {
+                    padding: $card-spacer-x calc($card-spacer-x / 2) $card-spacer-x $card-spacer-x;
+                }
+            }
+        }
+
+        .card-content {
+            flex: 1 0 100%;
+        }
+    }
+
+    &_img-right {
+        @extend .c3-card;
+
+        .card-body > .row > .col {
+            display: flex;
+            flex-direction: row-reverse;
+            flex-wrap: wrap;
+        }
+
+        .card-media {
+            padding: $card-spacer-x $card-spacer-x $card-spacer-x calc($card-spacer-x / 2);
+            flex: 1 0 map-get($column-flex-basis, 5);
+            min-width: $card-media-max-width;
+
+            + .card-content {
+                flex: 1 0 map-get($column-flex-basis, 7);
+                padding: $card-spacer-x calc($card-spacer-x / 2) $card-spacer-x $card-spacer-x;
+            }
+
+            &.ratio {
+                align-self: flex-start;
+
+                > iframe {
+                    padding: $card-spacer-x $card-spacer-x $card-spacer-x calc($card-spacer-x / 2);
+                }
+            }
+        }
+
+        .card-content {
+            flex: 1 0 100%;
+        }
+    }
+    /*#endregion*/
+
+    // Compound / Attribute classes
+    /*#region*/
+    &.header-text-center {
+        .card-header {
+            text-align: center;
+        }
+    }
+
+    &.content-text-center {
+        .card-content {
+            text-align: center;
+        }
+
+        .card-footer {
+            text-align: left;
+        }
+    }
+
+    &.footer-text-center {
+        .card-footer {
+            text-align: center;
+        }
+    }
+    /*#endregion*/
+
+    // Card themes
+    @import "./assets/scss/_minimal";
+    @import "./assets/scss/_full-bleed";
+}
+
+// Card Link
+.c3-card-link {
+    display: block;
+    white-space: $btn-white-space;
+    cursor: if($enable-button-pointers, pointer, null);
+    user-select: none;
+    background-color: $white;
+    border: $btn-border-width solid transparent;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    box-shadow: $box-shadow;
+    transform: translateY(0);
+    transition: linear all $transition-def;
+    @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius);
+
+    > c3-card > div[class^="c3-card"],
+    > div[class^="c3-card"] {
+        border: none;
+    }
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+        box-shadow: $box-shadow-lg;
+        transform: translateY(-10px);
+        transition: linear all $transition-def;
+
+        .card-header { color: $gray-dark; }
+    }
+}
+
+// Card Grid
+.card-grid {
+    padding-bottom: map-get($spacers, 4);
+
+    > div[class^="col"] {
+        margin-bottom: map-get($spacers, 4);
+
+        > .c3-card-link {
+            height: 100%;
+
+            > c3-card > div[class^="c3-card"] {
+                height: 100%;
+                background-color: $white;
+            }
+        }
+
+        > c3-card > div[class^="c3-card"] {
+            height: 100%;
+        }
+    }
+
+    @include media-breakpoint-down(md) {
+        padding-left: calc(0.5 * var(--bs-gutter-x));
+        padding-right: calc(0.5 * var(--bs-gutter-x));
+    }
+}

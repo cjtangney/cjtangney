@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>CJT dot ME | Home</title>
+	<meta name="Description" content="Connor Tangney's Homepage" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+
+	<!--link rel="icon" type="image/x-icon" href="/assets/icon/favicon.ico" /-->
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:400,500,600,700&amp;display=swap" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Oswald:400,500,600,700&amp;display=swap" rel="stylesheet">
+
+	<script>
+		var _ASSETS_ = '/assets';
+	</script>
+
+	<script type="module" src="/build/c3r.esm.js"></script>
+
+	<!-- Global Loading state styles -->
+	<style>	
+		.c3-component,
+		.c3-component > * {
+			opacity: 0;
+		}
+
+		.c3-component.hydrated,
+		.c3-component.hydrated > * {
+			animation: fadeIn cubic-bezier(0.125, 0.375, 0.5, 1.0) .375s;
+			animation-fill-mode: forwards;
+		}
+
+		@keyframes fadeIn {
+			0% {
+				opacity: 0;
+			}
+
+			100% {
+				opacity: 1;
+			}
+		}
+	</style>
+</head>
+
+<body>
+    <a href="#main-content" class="btn btn-skip-nav visually-hidden-focusable" >Skip to Main Content</a>
+	
+	<app-root class="c3-component">
+		<!-- SERVE STATIC SITE MARKUP -->
+		<static-router />
+	</app-root>
+
+	<link rel="stylesheet" href="/build/c3r.css" />
+	<footer class="container-fluid bg-gray-light py-5 text-center" aria-label="Contact Me" id="contact">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-lg-8 mx-auto">
+					<c3-card classes="border-0" full-bleed>
+						<h2 class="mb-4">Interested in Working Together?</h2>
+						<p><span class="lead">Drop me a line at:</span>
+							<a href="mailto:connor@cjtangney.me">connor@cjtangney.me</a> or
+							<a href="mailto:connor@volunteeringforhope.com">connor@volunteeringforhope.com</a>
+						</p>
+					</c3-card>
+				</div>
+			</div>
+		</div>
+	</footer>
+</body>
+
+</html>

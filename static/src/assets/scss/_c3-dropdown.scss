@@ -1,0 +1,14 @@
+@import "dropdown";
+
+/** Custom Dropdown Styles
+ */
+.dropdown-menu {
+    .dropdown-item {
+        text-decoration: none;
+    }
+
+    &.show {
+        position: absolute;
+        list-style: none;
+    }
+}

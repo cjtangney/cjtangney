@@ -1,0 +1,12 @@
+/**
+ * File containing references to SCSS functions / mixins / variables
+ */
+
+// Start setup for Bootstrap
+@import "functions";
+@import "variables";
+@import "mixins";
+
+// Custom C3 SCSS
+@import "c3-variables";
+@import "c3-mixins";
