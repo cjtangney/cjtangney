@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>CJT dot ME | Home</title>
+	<meta name="description"
+		content="Connor Tangney is a New Hampshire-based Web and Applications developer with a focus  on JavaScript and interactions in the front end space." />
+	<meta name="keywords"
+		content="Connor Tangney, Web Developer, Application Developer, JavaScript Developer, New Hampshire" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+
+	<!--link rel="icon" type="image/x-icon" href="/assets/icon/favicon.ico" /-->
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:400,500,600,700&amp;display=swap" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Oswald:400,500,600,700&amp;display=swap" rel="stylesheet">
+
+	<script>
+		var _ASSETS_ = '/assets';
+	</script>
+
+	<script type="module" src="/build/c3r.esm.js"></script>
+
+	<!-- Global Loading state styles -->
+	<style>
+		.c3-component,
+		.c3-component>*,
+		.img-lazy-load {
+			opacity: 0;
+		}
+
+		.c3-component.hydrated,
+		.c3-component.hydrated>*,
+		.img-hydrated {
+			animation: fadeIn cubic-bezier(0.125, 0.375, 0.5, 1.0) .375s;
+			animation-fill-mode: forwards;
+		}
+
+		@keyframes fadeIn {
+			0% {
+				opacity: 0;
+			}
+
+			100% {
+				opacity: 1;
+			}
+		}
+	</style>
+
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://cjtangney.me/">
+	<meta property="og:title" content="Hey there.">
+	<meta property="og:image" content="https://cjtangney.me/assets/icon/utility/avatar.svg">
+	<meta property="og:description" content="Need a web developer in New Hampshire? Let's talk.">
+</head>
+
+<body>
+	<app-root class="c3-component">
+		<a href="#main-content" class="btn btn-skip-nav visually-hidden-focusable">Skip to Main Content</a>
+
+		<!-- SERVE STATIC SITE MARKUP -->
+		<static-router></static-router>
+	</app-root>
+
+	<footer id="main-footer" class="container-fluid bg-gray-light py-5 text-center" id="contact">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-lg-8 mx-auto">
+					<h2 class="mb-4">Interested in Working Together?</h2>
+					<p><span class="lead">Drop me a line at:</span>
+						<a href="mailto:connor@cjtangney.me">connor@cjtangney.me</a> or
+						<a href="mailto:connor@volunteeringforhope.com">connor@volunteeringforhope.com</a>
+					</p>
+					<span class="footer-copyright fw-bold fs-6">CJTangney &#169; <span id="footer-date">2022</span></span>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script>
+		window.addEventListener('DOMContentLoaded', () => {
+			document.querySelector('footer #footer-date').innerHTML = new Date().getFullYear();
+		});
+	</script>
+
+	<link rel="stylesheet" href="/build/c3r.css" />
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+/** Z-index Helpers
+ */
+/*#region*/
+.z-index-1 {
+    z-index: 1;
+}
+/*#endregion*/
+
+/** Overflow Helpers
+ */
+/*#region*/
+.overflow-y-hidden {
+    overflow-y: hidden;
+}
+
+.overflow-x-hidden {
+    overflow-x: hidden;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+/*#endregion*/
+
+/** Font Helpers
+ */
+/*#region*/
+.fw-medium {
+    font-weight: 500;
+}
+
+.fw-semi-bold {
+    font-weight: 600;
+}
+/*#endregion*/

@@ -1,0 +1,202 @@
+@use "sass:math";
+
+$enable-negative-margins: true; // this enables the use of negative margin-helpers via Bootstrap
+
+/** Colors */
+/*#region*/
+// Brand Palette
+$primary: #976391;
+$secondary: #63A375;
+$tertiary: #157A6E;
+$quaternary: #FEF6C9;
+$quinary: #1B2F33;
+$senary: #2E0014;
+$gray: $gray-500;
+$gray-light: $gray-100;
+$gray-dark: $gray-800;
+
+$custom-colors: (
+    "primary": $primary,
+    "secondary": $secondary,
+    "tertiary": $tertiary,
+    "quaternary": $quaternary,
+    "quinary": $quinary,
+    "senary": $senary,
+    "gray": $gray,
+    "gray-light": $gray-light,
+    "gray-dark": $gray-dark
+);
+
+// Merge Custom Map to Bootstrap Map
+$theme-colors: map-merge($theme-colors, $custom-colors);
+$theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
+$utilities-text: map-merge($utilities-text, $theme-colors-rgb);
+$utilities-bg: map-merge($utilities-bg, $theme-colors-rgb);
+$utilities-text-colors: map-loop($utilities-text, rgba-css-var, "$key", "text");
+$utilities-bg-colors: map-loop($utilities-bg, rgba-css-var, "$key", "bg");
+
+$box-shadow-color: rgba(0,0,0,0.3);
+$box-shadow-color-hover: rgba(0,0,0,0.5);
+$box-shadow-default: 0px 0px 10px 2px $box-shadow-color;
+$box-shadow-hover: 0px 0px 15px 7px $box-shadow-color-hover;
+$box-shadow-top: 0px -5px 10px 2px $box-shadow-color;
+$box-shadow-right: 5px 0 10px 2px $box-shadow-color;
+$box-shadow-bottom: 0px 5px 10px 2px $box-shadow-color;
+$box-shadow-left: -5px 0 10px 2px $box-shadow-color;
+/*#endregion*/
+
+/** Animation Helpers */
+/*#region*/
+$transition-fast: 0.025s;
+$transition-def: 0.125s;
+$transition-slow: 0.5s;
+$transition-x-slow: 1s;
+/*#endregion*/
+
+/** Spacer */
+/*#region*/
+// stylelint-disable-next-line scss/dollar-variable-default
+$spacers: map-merge(
+    (
+        0: 0,
+        1: (
+            $spacer * 0.25,
+        ),
+        2: (
+            $spacer * 0.5,
+        ),
+        3: $spacer,
+        4: (
+            $spacer * 1.5,
+        ),
+        5: (
+            $spacer * 3,
+        ),
+    ),
+    $spacers
+);
+/*#endregion*/
+
+/** Gutters & Margins */
+/*#region*/
+$column-flex-basis: (
+    12: 100%,
+    11: math.percentage(math.div(11, 12)),
+    10: math.percentage(math.div(10, 12)),
+    9: math.percentage(math.div(9, 12)),
+    8: math.percentage(math.div(8, 12)),
+    7: math.percentage(math.div(7, 12)),
+    6: math.percentage(math.div(6, 12)),
+    5: math.percentage(math.div(5, 12)),
+    4: math.percentage(math.div(4, 12)),
+    3: math.percentage(math.div(3, 12)),
+    2: math.percentage(math.div(2, 12)),
+    1: math.percentage(math.div(1, 1))
+);
+
+$override-grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px,
+    giant: 1800px,
+);
+$grid-breakpoints: map-merge($grid-breakpoints, $override-grid-breakpoints);
+
+// Bootstrap Container Max Widths
+/**
+ * By default, these widths match
+ * the Bootstrap default. If these widths
+ * are changed, remove `!default` flag
+ */
+$override-container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+    xxl: 1320px,
+) !default;
+
+$container-max-widths: map-merge($container-max-widths, $override-container-max-widths);
+@include _assert-ascending($container-max-widths, "$container-max-widths");
+/*#endregion*/
+
+/** Typography */
+/*#region*/
+// Font Properties
+$font-family-sans-serif: "Open Sans", sans-serif;
+$font-size-base: 1rem; // 16px
+$copy-text-size: $font-size-base; // 16px
+$font-size-lg: $font-size-base * 1.25; // 20px
+$font-size-sm: $font-size-base * 0.875; // 14px
+$line-height-base: 1.7;
+$lead-font-size: $font-size-lg;
+
+// Heading Properties
+$headings-font-family: "Oswald", Impact, "Franklin Gothic Bold", sans-serif;
+$headings-font-weight: 500;
+$headings-color-primary: $quinary;
+$headings-color-secondary: $senary;
+
+
+// stylelint-disable-next-line scss/dollar-variable-default
+// $font-sizes: map-merge(
+//     (
+//         1: $h1-font-size,
+//         2: $h2-font-size,
+//         3: $h3-font-size,
+//         4: $h4-font-size,
+//         5: $h5-font-size,
+//         6: $h6-font-size,
+//     ),
+//     $font-sizes
+// );
+
+// Link Properties
+$link-color: $primary;
+$link-decoration: none;
+$link-color-primary: $link-color;
+$link-hover-primary: tint-color($primary, 50);
+/*#endregion*/
+
+/** Buttons / Inputs */
+/*#region*/
+/*#endregion*/
+
+/** Dropdowns */
+/*#region*/
+/*#endregion*/
+
+/** Pagination */
+/*#region*/
+/*#endregion*/
+
+/** Cards */
+/*#region*/
+$card-border-radius: 0;
+$card-inner-border-radius: 0;
+$card-media-max-width: 250px;
+/*#endregion*/
+
+/** Modals */
+/*#region*/
+/*#endregion*/
+
+/** Aspect Ratios */
+/*#region*/
+$aspect-ratios: (
+  "1x1": 100%,
+  "4x3": calc(3 / 4 * 100%),
+  "16x9": calc(9 / 16 * 100%),
+);
+/*#endregion*/
+
+/** Breadcrumbs */
+/*#region*/
+/*#endregion*/
+
+/** Forms **/
+/*#region*/
+/*#endregion*/
