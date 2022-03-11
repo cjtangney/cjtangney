@@ -43,6 +43,10 @@
             padding: $card-spacer-y $card-spacer-x $card-spacer-x;
         }
 
+        .img-hydrated {
+            width: 100%;
+        }
+
         &.ratio {
             align-self: flex-start;
 
