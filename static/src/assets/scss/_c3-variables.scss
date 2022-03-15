@@ -126,7 +126,7 @@ $container-max-widths: map-merge($container-max-widths, $override-container-max-
 /** Typography */
 /*#region*/
 // Font Properties
-$font-family-sans-serif: "Open Sans", sans-serif;
+$font-family-sans-serif: 'Mukta', sans-serif;
 $font-size-base: 1rem; // 16px
 $copy-text-size: $font-size-base; // 16px
 $font-size-lg: $font-size-base * 1.25; // 20px
@@ -135,7 +135,7 @@ $line-height-base: 1.7;
 $lead-font-size: $font-size-lg;
 
 // Heading Properties
-$headings-font-family: "Oswald", Impact, "Franklin Gothic Bold", sans-serif;
+$headings-font-family: 'Inter', sans-serif;
 $headings-font-weight: 500;
 $headings-color-primary: $quinary;
 $headings-color-secondary: $senary;

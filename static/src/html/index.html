@@ -5,8 +5,8 @@
             <div class="col">
                 <c3-card card-orientation="img-left" class="c3-component" classes="mb-0 border-0">
                     <picture slot="card-media">
-                        <source data-srcset="/assets/icon/utility/avatar.svg" type="image/svg+xml" />
-                        <img src="/assets/icon/utility/avatar.svg" alt="User Avatar: CJT" />
+                        <source class="img-load-lazy" data-srcset="/assets/icon/utility/avatar.svg" type="image/svg+xml" />
+                        <img class="img-load-lazy" src="/assets/icon/utility/avatar.svg" alt="User Avatar: CJT" />
                     </picture>
                     <div class="mt-5">
                         <h1 slot="card-header" class="bg-transparent text-center w-75 mx-auto">Hey.</h1>
@@ -242,8 +242,10 @@
                 <c3-modal>
                     <button slot="modal-trigger" class="c3-card-link" title="Southern New Hampshire University">
                         <c3-card class="c3-component" classes="header-text-center content-text-center">
-                            <img src="/assets/img/snhu-logo.png" alt="Southern New Hampshire University Logo"
-                                slot="card-media" />
+                            <picture slot="card-media">
+                                <source class="img-load-lazy" data-srcset="/assets/img/snhu-logo.png" type="image/png" />
+                                <img class="img-load-lazy" src="/assets/img/snhu-logo.png" alt="Southern New Hampshire University Logo" />
+                            </picture>
                             <h3 slot="card-header" data-inline>Southern New Hampshire University</h3>
                             <h4 class="h5">Front End Developer</h4>
                         </c3-card>
@@ -263,7 +265,10 @@
                 <c3-modal>
                     <button slot="modal-trigger" class="c3-card-link" title="SilverTech Inc.">
                         <c3-card class="c3-component" classes="header-text-center content-text-center">
-                            <img src="/assets/img/silvertech-logo.png" alt="SilverTech Inc. Logo" slot="card-media" />
+                            <picture slot="card-media">
+                                <source class="img-load-lazy" data-srcset="/assets/img/silvertech-logo.png" type="image/png" />
+                                <img class="img-load-lazy" src="/assets/img/silvertech-logo.png" alt="SilverTech Inc. Logo" />
+                            </picture>
                             <h3 slot="card-header" data-inline>SilverTech Inc.</h3>
                             <h4 class="h5">Front End Engineer</h4>
                         </c3-card>
@@ -283,7 +288,10 @@
                 <c3-modal>
                     <button slot="modal-trigger" class="c3-card-link" title="P&R Dental Strategies">
                         <c3-card class="c3-component" classes="header-text-center content-text-center">
-                            <img src="/assets/img/pr-logo.jpg" alt="P&R Dental Logo" slot="card-media" />
+                            <picture slot="card-media">
+                                <source class="img-load-lazy" data-srcset="/assets/img/pr-logo.jpg" type="image/png" />
+                                <img class="img-load-lazy" src="/assets/img/pr-logo.jpg" alt="P&R Dental Logo" />
+                            </picture>
                             <h3 slot="card-header" data-inline>P&amp;R Dental Strategies</h3>
                             <h4 class="h5">Application UI Developer</h4>
                         </c3-card>
@@ -303,7 +311,10 @@
                 <c3-modal>
                     <button slot="modal-trigger" class="c3-card-link" title="Pacific Group Resorts Inc.">
                         <c3-card class="c3-component" classes="header-text-center content-text-center">
-                            <img src="/assets/img/pgri-logo.png" alt="PGRI Logo" slot="card-media" />
+                            <picture slot="card-media">
+                                <source class="img-load-lazy" data-srcset="/assets/img/pgri-logo.png" type="image/png" />
+                                <img class="img-load-lazy" src="/assets/img/pgri-logo.png" alt="PGRI Logo" />
+                            </picture>
                             <h3 slot="card-header" data-inline>Pacific Group Resorts Inc.</h3>
                             <h4 class="h5">Webmaster</h4>
                         </c3-card>
@@ -324,7 +335,10 @@
                 <c3-modal>
                     <button slot="modal-trigger" class="c3-card-link" title="More Vang">
                         <c3-card class="c3-component" classes="header-text-center content-text-center">
-                            <img src="/assets/img/more-vang-logo.jpg" alt="More Vang Logo" slot="card-media" />
+                            <picture slot="card-media">
+                                <source class="img-load-lazy" data-srcset="/assets/img/more-vang-logo.jpg" type="image/png" />
+                                <img class="img-load-lazy" src="/assets/img/more-vang-logo.jpg" alt="More Vang Logo" />
+                            </picture>
                             <h3 slot="card-header" data-inline>More Vang</h3>
                             <h4 class="h5">Data Automation Specialist</h4>
                         </c3-card>
@@ -356,12 +370,10 @@
             <div class="col-12 col-lg-8 mx-auto">
                 <c3-card class="c3-component" classes="border-0" full-bleed>
                     <h2>Projects</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ullam quia nostrum labore vel
-                        voluptate numquam iste sed rem vero quam sequi maiores recusandae facere incidunt quod libero,
-                        distinctio atque ab. Dignissimos minus eligendi, neque dolor consequuntur cum, earum
-                        voluptatibus
-                        modi cupiditate, consectetur obcaecati nulla? Accusamus similique inventore exercitationem
-                        consequuntur vel sapiente alias eveniet veniam dolorum, soluta aliquid optio quaerat.</p>
+                    <p>
+                        In addition to my professional experience, I've also taken on a number of personal projects to occupy my time outside the office.
+                        These escapades range from tinkering with data structures to establishing networked applications via the use of WebSockets.
+                    </p>
                     <p>Select an item below for more information on a particular project.</p>
                 </c3-card>
             </div>
@@ -898,7 +910,7 @@
                 <c3-card class="c3-component" classes="border-0" full-bleed>
                     <h2>Additional Skills &amp; Certifications</h2>
                     <p>During my professional career, I have been fortunate enough to work in environments that provided
-                        me with opportunites to advance a number of skills which are not directly related to Web
+                        me with opportunites to advance a number of skills which are not related to Web
                         Development.</p>
                 </c3-card>
             </div>
@@ -910,10 +922,7 @@
                             <li class="list-group-item">Moz SEO Essentials Certification</li>
                             <li class="list-group-item">Object Oriented Programming</li>
                             <li class="list-group-item">First Aid / CPR Certified</li>
-                            <li class="list-group-item">File Management</li>
                             <li class="list-group-item">Azure DevOps</li>
-                            <li class="list-group-item">Data Manipulation</li>
-                            <li class="list-group-item">Level 100 USASA Instructor</li>
                             <li class="list-group-item">Version Control &ndash; Git</li>
                         </ul>
                     </div>
