@@ -20,6 +20,13 @@ const _KEYBOARD_ = Object.freeze({
     'space': 32
 });
 
+const _COLUMS_ = Object.freeze({
+    1: 12,
+    2: 6,
+    3: 4,
+    4: 3
+});
+
 /**
  * Breakpoints are situatued such that
  * comparison would be "and down" --
@@ -71,6 +78,7 @@ export {
     AspectRatio,
     _COLORS_,
     _KEYBOARD_,
+    _COLUMS_,
     _BREAKPOINTS_,
     guid,
     cloneElementAttr

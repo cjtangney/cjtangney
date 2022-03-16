@@ -34,29 +34,11 @@ export namespace Components {
          */
         "headerLink": boolean;
     }
-    interface C3Icon {
+    interface C3ImageGrid {
         /**
-          * Any CSS classes to append to the SVG
+          * The number of columns to render
          */
-        "classes": string;
-        /**
-          * The icon to utilize
-         */
-        "icon": string;
-    }
-    interface C3LazyImg {
-        /**
-          * Additional CSS classes to append
-         */
-        "classes": string;
-        /**
-          * Image alternate text
-         */
-        "imgAlt": string;
-        /**
-          * Image source
-         */
-        "imgSrc": string;
+        "numColumns": string;
     }
     interface C3Modal {
     }
@@ -82,17 +64,11 @@ declare global {
         prototype: HTMLC3CardElement;
         new (): HTMLC3CardElement;
     };
-    interface HTMLC3IconElement extends Components.C3Icon, HTMLStencilElement {
+    interface HTMLC3ImageGridElement extends Components.C3ImageGrid, HTMLStencilElement {
     }
-    var HTMLC3IconElement: {
-        prototype: HTMLC3IconElement;
-        new (): HTMLC3IconElement;
-    };
-    interface HTMLC3LazyImgElement extends Components.C3LazyImg, HTMLStencilElement {
-    }
-    var HTMLC3LazyImgElement: {
-        prototype: HTMLC3LazyImgElement;
-        new (): HTMLC3LazyImgElement;
+    var HTMLC3ImageGridElement: {
+        prototype: HTMLC3ImageGridElement;
+        new (): HTMLC3ImageGridElement;
     };
     interface HTMLC3ModalElement extends Components.C3Modal, HTMLStencilElement {
     }
@@ -115,8 +91,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "app-root": HTMLAppRootElement;
         "c3-card": HTMLC3CardElement;
-        "c3-icon": HTMLC3IconElement;
-        "c3-lazy-img": HTMLC3LazyImgElement;
+        "c3-image-grid": HTMLC3ImageGridElement;
         "c3-modal": HTMLC3ModalElement;
         "c3-off-canvas": HTMLC3OffCanvasElement;
         "static-router": HTMLStaticRouterElement;
@@ -151,29 +126,11 @@ declare namespace LocalJSX {
          */
         "headerLink"?: boolean;
     }
-    interface C3Icon {
+    interface C3ImageGrid {
         /**
-          * Any CSS classes to append to the SVG
+          * The number of columns to render
          */
-        "classes"?: string;
-        /**
-          * The icon to utilize
-         */
-        "icon"?: string;
-    }
-    interface C3LazyImg {
-        /**
-          * Additional CSS classes to append
-         */
-        "classes"?: string;
-        /**
-          * Image alternate text
-         */
-        "imgAlt"?: string;
-        /**
-          * Image source
-         */
-        "imgSrc"?: string;
+        "numColumns"?: string;
     }
     interface C3Modal {
     }
@@ -192,8 +149,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "app-root": AppRoot;
         "c3-card": C3Card;
-        "c3-icon": C3Icon;
-        "c3-lazy-img": C3LazyImg;
+        "c3-image-grid": C3ImageGrid;
         "c3-modal": C3Modal;
         "c3-off-canvas": C3OffCanvas;
         "static-router": StaticRouter;
@@ -205,8 +161,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "c3-card": LocalJSX.C3Card & JSXBase.HTMLAttributes<HTMLC3CardElement>;
-            "c3-icon": LocalJSX.C3Icon & JSXBase.HTMLAttributes<HTMLC3IconElement>;
-            "c3-lazy-img": LocalJSX.C3LazyImg & JSXBase.HTMLAttributes<HTMLC3LazyImgElement>;
+            "c3-image-grid": LocalJSX.C3ImageGrid & JSXBase.HTMLAttributes<HTMLC3ImageGridElement>;
             "c3-modal": LocalJSX.C3Modal & JSXBase.HTMLAttributes<HTMLC3ModalElement>;
             "c3-off-canvas": LocalJSX.C3OffCanvas & JSXBase.HTMLAttributes<HTMLC3OffCanvasElement>;
             "static-router": LocalJSX.StaticRouter & JSXBase.HTMLAttributes<HTMLStaticRouterElement>;

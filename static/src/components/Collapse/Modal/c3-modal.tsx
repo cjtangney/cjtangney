@@ -12,7 +12,6 @@ import {
 
 @Component({
     tag: 'c3-modal',
-    styleUrl: 'c3-modal.scss',
     shadow: false
 })
 export class C3Modal implements ComponentInterface {
