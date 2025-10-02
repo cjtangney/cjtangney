@@ -5,12 +5,12 @@ interface HeadingProps {
 }
 
 const FONT_PROPERTIES = {
-  1: 'text-4xl md:text-6xl mb-5',
-  2: 'text-3xl md:text-4xl mb-5',
-  3: 'text-2xl md:text-3xl mb-5',
-  4: 'text-xl md:text-2xl mb-5',
-  5: 'text-lg md:text-xl mb-5',
-  6: 'text-lg mb-5',
+  1: 'text-4xl md:text-6xl',
+  2: 'text-3xl md:text-4xl',
+  3: 'text-2xl md:text-3xl',
+  4: 'text-xl md:text-2xl',
+  5: 'text-lg md:text-xl',
+  6: 'text-lg',
 };
 
 const HeadingTag: React.FC<HeadingProps> = ({

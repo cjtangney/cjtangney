@@ -9,19 +9,18 @@ import { Text } from "~/components/typography/Text";
 function HomePage() {
   return (
     <Container
-      className="grid place-content-center h-full mt-8 lg:mt-48"
-      viewportRenderConfig={{
-        threshold: .4,
-        viewportSlideGap: 5,
-      }}
+      className="grid place-content-center h-full"
     >
       <Card
         className={[
-          "max-w-screen-lg grid gap-8 text-center !my-0",
-          "md:grid-cols-[300px_auto] md:text-left",
+          "px-6 py-6",
+          "md:px-8 md:py-8",
+          "max-w-screen-md grid gap-8",
+          "md:grid-cols-[1fr_2fr]",
+          "lg:mt-20",
         ].join(" ")}
       >
-        <div>
+        <div className="grid gap-4">
           <Image
             srcSet={[
               "kyle-image-for-me_300x300.jpg 300w",
@@ -30,20 +29,26 @@ function HomePage() {
             ].join(", ")}
             alt="Illustration of Connor Tangney"
             className="object-cover mx-auto"
-            height={300}
+            height={215}
             aspectRatio="1/1"
           />
+          <div>
+            <Text className="text-lg">🧔 Connor (that's me)</Text>
+            <Text className="text-lg">👔 Software Engineer</Text>
+            <Text className="text-lg">🏙 Boston, MA</Text>
+          </div>
         </div>
 
-        <div className="flex flex-col items-center md:items-start">
-          <Heading level={1}>Hey</Heading>
-          <Text className="text-lg !mb-0">🧔 Connor (that's me)</Text>
-          <Text className="text-lg !mb-0">👔 Software Engineer</Text>
-          <Text className="text-lg">🏙 Boston, MA</Text>
+        <div className="grid gap-6 grid-cols-2 md:grid-cols-1 items-start text-left">
+          <div>
+            <Heading level={1}>Hey</Heading>
+            <Text className="md:text-lg mt-2">That's me.</Text>
+            <Text className="md:text-lg mt-2">Click the hamburger to learn more.</Text>
+          </div>
 
-          <div className="mt-auto">
-            <Text className="mt-4 !mb-0">Check me out at...</Text>
-            <SocialMediaLinks />
+          <div className="flex flex-col mt-auto">
+            <Text className="text-sm">Check me out at...</Text>
+            <SocialMediaLinks className="grid grid-cols-[repeat(6,_24px)] items-center gap-[12px]" />
           </div>
         </div>
       </Card>

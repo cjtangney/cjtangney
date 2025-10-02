@@ -5,7 +5,7 @@ export const Text = ({
   children: React.ReactNode;
   className?: string;
 }) => {
-  const defaultClasses = 'mb-5 text-c-default';
+  const defaultClasses = 'text-c-default';
   const cssClasses = className
     ? `${defaultClasses} ${className}`
     : defaultClasses;

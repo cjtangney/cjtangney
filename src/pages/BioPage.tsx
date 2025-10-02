@@ -8,46 +8,30 @@ import { Text } from "~/components/typography/Text";
 function BioPage() {
   return (
     <Container
-      className="grid place-content-center h-full mt-8 lg:mt-48"
-      viewportRenderConfig={{
-        threshold: 0,
-        viewportSlideGap: 5,
-      }}
+      className="grid place-content-center h-full"
     >
-      <Card className="max-w-screen-md !my-0">
-        <Heading className="text-center" level={1}>Bio</Heading>
-        <Text className="text-lg">
-          I'm never really 100% sure what to put in these things. I always feel like whatever 
-          information people put on pages like this is chronically out of date by the
-          time someone "real" visits.
-        </Text>
-        <Text className="text-lg">
-          I guess, instead of hitting you with a wall of text about my philospohy as a developer 
-          (as Chat GPT might suggest me to do), my aim is to show you all what kind of things are 
-          important to me through the content that I post on my site.
-        </Text>
-        <Text className="text-lg mb-0">
-          Consider this page to be less of a "bio" and more of a Character Sheet to help you all
-          figure out a little bit more about the kind of person I am and what I'm good (or bad) at.
-        </Text>
-      </Card>
-
-      <Card className="max-w-screen-lg !my-0">
+      <Card className={[
+        "px-6 py-6",
+        "md:px-8 md:py-8",
+        "max-w-screen-lg lg:mt-20",
+        "grid gap-4"
+        ].join(" ")}
+      >
         <Heading><span>Name:</span> Connor Tangney</Heading>
 
         <div className="grid md:grid-cols-2">
           <div className="grid grid-cols-[auto_1fr] gap-4 items-center">
-            <Heading level={3} className="text-xl font-mono uppercase">Race</Heading>
+            <Heading level={3} className="text-xl uppercase">Race:</Heading>
             <Text>Human (Couch)</Text>
           </div>
           <div className="grid grid-cols-[auto_1fr] gap-4 items-center">
-            <Heading level={3} className="text-xl font-mono uppercase">Class</Heading>
+            <Heading level={3} className="text-xl uppercase">Class:</Heading>
             <Text>Software Developer</Text>
           </div>
         </div>
 
-        <div className="grid gap-2 items-start">
-          <Heading level={3} className="text-xl font-mono uppercase !mb-0">Backstory</Heading>
+        <div className="grid gap-2 items-start mt-4">
+          <Heading level={3} className="text-xl uppercase !mb-0">Backstory:</Heading>
           <Text className="text-lg">
             Born and raised in New England, learned and schooled in 
             New York. Three decades experience being a person, one decade of

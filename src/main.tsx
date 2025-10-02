@@ -9,8 +9,8 @@ import BaseLayout from "~/layouts/BaseLayout";
 import BioPage from "~/pages/BioPage";
 import HomePage from "~/pages/HomePage";
 
-import GalleryPage from "~/pages/shenanigans/photography";
-import JapanGallery from "~/pages/shenanigans/photography/JapanGallery";
+import GalleryPage from "~/pages/photography";
+import JapanGallery from "~/pages/photography/JapanGallery";
 
 import "./styles/index.css";
 
@@ -31,7 +31,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           <Route path="/">
             <Route index element={<HomePage />} />
             <Route path="bio" element={<BioPage />} />
-            <Route path="shenanigans/photography">
+            <Route path="photography">
               <Route index element={<GalleryPage />} />
               <Route path="japan" element={<JapanGallery />} />
             </Route>

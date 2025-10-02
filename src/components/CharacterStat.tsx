@@ -1,4 +1,5 @@
 import { useInView } from 'react-hook-inview';
+import { useState, useEffect } from 'react';
 
 type FillColorsType = 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple';
 enum FillColors {
@@ -21,10 +22,18 @@ export const CharacterStat = ({
   animate?: boolean,
   fillColor?: FillColorsType
 }) => {
-  const startValue = animate ? 0 : value;
+  const [isAnimated, setIsAnimated] = useState<Boolean>(false);
+
+  const startValue = animate ? (
+    isAnimated ? value : 0
+  ) : value;
   const [ viewRef, isVisible ] = useInView({
     threshold: 1,
   })
+
+  useEffect(() => {
+    isVisible && setIsAnimated(true);
+  });
 
   const statDotStyle = {
     left: isVisible ? `${value}%` : `${startValue}%`,
@@ -37,14 +46,14 @@ export const CharacterStat = ({
   }
 
   return (
-    <div className="grid grid-cols-[40px_auto] gap-4 items-center" ref={viewRef}>
+    <div className="grid grid-cols-[40px_auto] gap-4 items-center" ref={viewRef} data-animated={isAnimated}>
       { label && 
         <span className="font-mono text-xl font-medium text-c-default !mb-0">
           {label}
         </span> 
       }
       <div className="w-full min-w-[125px] h-6 rounded-full bg-gray-700 relative">
-        <div className="absolute top-[2px] left-[2px] h-[calc(100%-3px)] w-[calc(100%-4px)]">
+        <div className="absolute top-[2px] left-[2px] h-[calc(100%-4px)] w-[calc(100%-4px)]">
           <div 
             className={`clip-path-1 w-full h-full absolute left-0 top-0 transition-all delay-300 duration-500 ${FillColors[fillColor]}`} 
             style={statClipPathStyle}

@@ -82,18 +82,18 @@ const photos: PhotoGalleryPhoto[] = [
 function JapanGallery() {
   return (
     <Container
-      className="grid place-content-center h-full mt-8 lg:mt-48"
-      viewportRenderConfig={{
-        threshold: .025,
-        viewportSlideGap: 5,
-      }}
+      className="grid gap-4 place-content-center h-full lg:mt-20"
     >
-      <Card>
-        <div className="flex flex-col items-center">
+      <Card className={[
+        "px-6 py-6",
+        "md:px-8 md:py-8",
+      ].join(" ")}>
+        <div className="grid gap-4">
           <Heading level={1}>Japan</Heading>
-          <Text className="text-lg text-center !mb-0">
-            Back in 2020, right before the Pandemic, I went to Japan. Here are some of the pictures I took when I went. Unfortunately
-            these are the only ones I have remaining, as the hard drives which had all the others failed on me ☹
+          <Text className="text-lg !mb-0">
+            Here are some pictures I've taken on my trips to Japan! 
+            I'll update this as time and socioeconomic status allow
+            for me to make more trips back!
           </Text>
         </div>
       </Card>

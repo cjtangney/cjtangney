@@ -25,9 +25,9 @@ const START_POSITION_SELECTOR = {
 
 const TRIGGER_SELECTORS = {
   top: "left-1/2 -translate-x-1/2 -bottom-20",
-  right: "top-1/2 -translate-y-1/2 -left-20",
+  right: "-left-20",
   bottom: "right-1/2 -translate-x-1/2 -top-20",
-  left: "top-1/2 -translate-y-1/2 -right-20",
+  left: "-right-20",
 };
 
 const ON_SCREEN_SELECTOR = {
@@ -121,11 +121,8 @@ export const FlyoutProvider = ({
     };
   }, [isVisible]);
 
-  const flyoutSelectors = `absolute z-10 ${
-    START_POSITION_SELECTOR[startPosition]
-  } ${className ? className : ""} ${
-    isVisible ? "" : `${ON_SCREEN_SELECTOR[startPosition]}`
-  }`;
+  const flyoutSelectors = `absolute z-10 ${className ? className : ""} 
+  ${ isVisible ? "" : `${ON_SCREEN_SELECTOR[startPosition]}` }`;
 
   return (
     <FlyoutContext.Provider

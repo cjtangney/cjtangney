@@ -1,5 +1,5 @@
 import { useInView } from 'react-intersection-observer';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 export const Image = ({
   src,
@@ -17,6 +17,7 @@ export const Image = ({
   className?: string;
 }) => {
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
+  const overlayRef = useRef<HTMLDivElement | null>(null);
   const { ref } = useInView({
     threshold: 0,
     delay: 250,
@@ -24,6 +25,8 @@ export const Image = ({
       if (!isLoaded) {
         if (inView) {
           setIsLoaded(true);
+          overlayRef.current?.classList.remove('opacity-100');
+          overlayRef.current?.classList.add('opacity-0');
         }
       }
     },
@@ -36,11 +39,7 @@ export const Image = ({
 
   const defaultClasses = [
     'relative transition object-cover',
-    'h-full w-full rounded-lg bg-neutral-300',
-    '[&.loading]:before:opacity-100',
-    'before:absolute before:opacity-0 before:transition-opacity',
-    'before:bg-neutral-300 before:rounded-lg',
-    'before:h-full before:w-full before:top-0 before:left-0',
+    'h-full w-full rounded-lg bg-neutral-300 z-0',
     isLoaded ? '' : 'loading',
   ].join(' ');
   const defaultStyles = {
@@ -55,8 +54,14 @@ export const Image = ({
     <div className="relative h-full">
       { height &&
         <div
-          className="absolute top-0 left-0 w-full"
+          className={[
+            'opacity-100',
+            'bg-neutral-300 rounded-lg z-[1]',
+            'absolute top-0 left-0 w-full',
+            'transition duration-[250ms]',
+          ].join(" ")}
           role="presentation"
+          ref={overlayRef}
           style={{
             paddingTop: height ? height : '',
           }}

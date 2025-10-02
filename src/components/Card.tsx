@@ -9,7 +9,7 @@ export const Card = ({
 }) => {
   return (
     <div
-      className={`rounded-lg my-12 shadow-md shadow-c-default py-8 px-12 bg-c-default${
+      className={`rounded-lg shadow-md shadow-c-default py-8 px-12 bg-c-default${
         className ? ` ${className}` : ""
       }`}
       aria-hidden={ariaHidden}

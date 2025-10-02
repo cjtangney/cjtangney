@@ -50,7 +50,7 @@ export const TopNav = () => {
   return (
     <nav className="flex justify-between items-center w-full text-c-default">
       <Button
-        className="!absolute right-5 top-10 p-2 !bg-slate-900 z-10"
+        className="!absolute lg:!fixed right-4 lg:right-8 top-5 p-2 !bg-slate-900 z-10"
         onClick={showMenu}
       >
         <Svg id="hamburger" className="h-[24px] w-[24px]" />
@@ -84,7 +84,7 @@ export const TopNav = () => {
               </TopNavLabel>
               <TopNavItem to="/">Home</TopNavItem>
               <TopNavItem to="/bio">Bio</TopNavItem>
-              <TopNavItem to="/shenanigans/photography">
+              <TopNavItem to="/photography">
                 Photography
               </TopNavItem>
             </ul>
