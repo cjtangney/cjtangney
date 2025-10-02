@@ -16,13 +16,6 @@ type FlyoutProps = {
   triggerClassName?: string;
 };
 
-const START_POSITION_SELECTOR = {
-  top: "top-0",
-  right: "-right-4",
-  bottom: "bottom-0",
-  left: "left-0",
-};
-
 const TRIGGER_SELECTORS = {
   top: "left-1/2 -translate-x-1/2 -bottom-20",
   right: "-left-20",
