@@ -82,7 +82,7 @@ const photos: PhotoGalleryPhoto[] = [
 function JapanGallery() {
   return (
     <Container
-      className="grid gap-4 place-content-center h-full lg:mt-20"
+      className="grid gap-4 h-full lg:mt-20 w-full"
     >
       <Card className={[
         "px-6 py-6",
