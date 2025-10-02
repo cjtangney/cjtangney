@@ -23,9 +23,9 @@ function HomePage() {
         <div className="grid gap-4">
           <Image
             srcSet={[
-              "kyle-image-for-me_300x300.jpg 300w",
-              "kyle-image-for-me_600x600.jpg 600w",
-              "kyle-image-for-me_900x900.jpg 900w",
+              "img/kyle-image-for-me_300x300.jpg 300w",
+              "img/kyle-image-for-me_600x600.jpg 600w",
+              "img/kyle-image-for-me_900x900.jpg 900w",
             ].join(", ")}
             alt="Illustration of Connor Tangney"
             className="object-cover mx-auto"

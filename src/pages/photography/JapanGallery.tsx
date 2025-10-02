@@ -6,75 +6,75 @@ import { Text } from "~/components/typography/Text";
 
 const photos: PhotoGalleryPhoto[] = [
   {
-    src: "/japan/0001.jpg",
+    src: "/img/japan/0001.jpg",
     alt: "Placeholder image",
   },
   {
-    src: "/japan/0002.jpg",
+    src: "/img/japan/0002.jpg",
     alt: "Placeholder image",
   },
   {
-    src: "/japan/0003.jpg",
+    src: "/img/japan/0003.jpg",
     alt: "Placeholder image",
   },
   {
-    src: "/japan/0004.jpg",
+    src: "/img/japan/0004.jpg",
     alt: "Placeholder image",
   },
   {
-    src: "/japan/0005.jpg",
+    src: "/img/japan/0005.jpg",
     alt: "Placeholder image",
   },
   {
-    src: "/japan/0006.jpg",
+    src: "/img/japan/0006.jpg",
     alt: "Placeholder image",
   },
   {
-    src: "/japan/0007.jpg",
+    src: "/img/japan/0007.jpg",
     alt: "Placeholder image",
   },
   {
-    src: "/japan/0008.jpg",
+    src: "/img/japan/0008.jpg",
     alt: "Placeholder image",
   },
   {
-    src: "/japan/0009.jpg",
+    src: "/img/japan/0009.jpg",
     alt: "Placeholder image",
   },
   {
-    src: "/japan/0010.jpg",
+    src: "/img/japan/0010.jpg",
     alt: "Placeholder image",
   },
   {
-    src: "/japan/0011.jpg",
+    src: "/img/japan/0011.jpg",
     alt: "Placeholder image",
   },
   {
-    src: "/japan/0012.jpg",
+    src: "/img/japan/0012.jpg",
     alt: "Placeholder image",
   },
   {
-    src: "/japan/0013.jpg",
+    src: "/img/japan/0013.jpg",
     alt: "Placeholder image",
   },
   {
-    src: "/japan/0014.jpg",
+    src: "/img/japan/0014.jpg",
     alt: "Placeholder image",
   },
   {
-    src: "/japan/0015.jpg",
+    src: "/img/japan/0015.jpg",
     alt: "Placeholder image",
   },
   {
-    src: "/japan/0016.jpg",
+    src: "/img/japan/0016.jpg",
     alt: "Placeholder image",
   },
   {
-    src: "/japan/0017.jpg",
+    src: "/img/japan/0017.jpg",
     alt: "Placeholder image",
   },
   {
-    src: "/japan/0018.jpg",
+    src: "/img/japan/0018.jpg",
     alt: "Placeholder image",
   },
 ];
