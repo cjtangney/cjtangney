@@ -11,8 +11,8 @@ function BioPage() {
       className="grid place-content-center h-full"
     >
       <Card className={[
-        "px-6 py-6",
-        "md:px-8 md:py-8",
+        "px-6 !py-6",
+        "md:px-8 md:!py-8",
         "max-w-screen-lg lg:mt-20",
         "grid gap-4"
         ].join(" ")}

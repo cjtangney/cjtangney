@@ -85,8 +85,8 @@ function JapanGallery() {
       className="grid gap-4 h-full lg:mt-20 w-full"
     >
       <Card className={[
-        "px-6 py-6",
-        "md:px-8 md:py-8",
+        "px-6 !py-6",
+        "md:px-8 md:!py-8",
       ].join(" ")}>
         <div className="grid gap-4">
           <Heading level={1}>Japan</Heading>

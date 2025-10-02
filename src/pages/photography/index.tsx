@@ -8,13 +8,13 @@ import { Text } from "~/components/typography/Text";
 function GalleryPage() {
   return (
     <Container
-      className={[
-        "px-6 py-6",
-        "md:px-8 md:py-8",
-        "grid place-content-center h-full"
-      ].join(" ")}
+      className="grid place-content-center h-full"
     >
-      <Card className="max-w-screen-lg grid gap-4 md:grid-cols-2 lg:mt-20">
+      <Card className={[
+        "px-6 !py-6",
+        "md:px-8 md:!py-8",
+        "max-w-screen-lg grid gap-4 md:grid-cols-2 lg:mt-20",
+      ].join(" ")}>
         <div className="grid gap-4">
           <Heading level={1}>Photo Gallery</Heading>
           <Text className="text-lg">

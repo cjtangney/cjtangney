@@ -13,8 +13,8 @@ function HomePage() {
     >
       <Card
         className={[
-          "px-6 py-6",
-          "md:px-8 md:py-8",
+          "px-6 !py-6",
+          "md:px-8 md:!py-8",
           "max-w-screen-md grid gap-8",
           "md:grid-cols-[1fr_2fr]",
           "lg:mt-20",
