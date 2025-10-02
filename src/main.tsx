@@ -1,0 +1,43 @@
+import { useEffect } from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router";
+
+import { ThemeProvider } from "~/contexts/Theme";
+
+import BaseLayout from "~/layouts/BaseLayout";
+
+import BioPage from "~/pages/BioPage";
+import HomePage from "~/pages/HomePage";
+
+import GalleryPage from "~/pages/shenanigans/photography";
+import JapanGallery from "~/pages/shenanigans/photography/JapanGallery";
+
+import "./styles/index.css";
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [pathname]);
+  return null;
+}
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <BrowserRouter>
+    <ThemeProvider>
+      <ScrollToTop />
+      <BaseLayout>
+        <Routes>
+          <Route path="/">
+            <Route index element={<HomePage />} />
+            <Route path="bio" element={<BioPage />} />
+            <Route path="shenanigans/photography">
+              <Route index element={<GalleryPage />} />
+              <Route path="japan" element={<JapanGallery />} />
+            </Route>
+          </Route>
+        </Routes>
+      </BaseLayout>
+    </ThemeProvider>
+  </BrowserRouter>
+);

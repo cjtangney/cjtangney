@@ -1,0 +1,17 @@
+@keyframes animate-rainbow {
+  0% {
+    background-position: 0% 50%;
+  }
+  20% {
+    background-position: 25% 25%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  80% {
+    background-position: 50% 25%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

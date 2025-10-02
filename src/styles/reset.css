@@ -1,0 +1,14 @@
+html,
+body {
+  height: 100%;
+}
+
+svg,
+svg > * {
+  pointer-events: none;
+  touch-action: none;
+}
+
+code {
+  color: var(--text-c-highlight);
+}
