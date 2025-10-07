@@ -1,11 +1,9 @@
 # Howdy.
 
-You've found the repository for [cjtangney.me](https://cjtangney.me) -- my personal website. Right now, I am just putting random things that I develop on here (React components, etc), but I am scheming to eventually put some other stuff on here.
+You've found the repository for [cjtangney.me](https://cjtangney.me) -- my personal website. Right now, I am just putting some random things on here. Those random things are things like...
 
-## Some candidates for that "other stuff" include:
-
-- [ ] My resumè / credentials
-- [x] My photography
+- [x] ~~[My character sheet](https://cjtangney.me/bio)~~
+- [x] ~~[My photography](https://cjtangney.me/photography)~~
 - [ ] Sim racing videos
 - [x] ~~Shouting into the void~~
 - [ ] Blog posts
