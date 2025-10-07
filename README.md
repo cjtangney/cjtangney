@@ -5,15 +5,13 @@ You've found the repository for [cjtangney.me](https://cjtangney.me) -- my perso
 ## Some candidates for that "other stuff" include:
 
 - [ ] My resumè / credentials
-- [ ] My photography
+- [x] My photography
 - [ ] Sim racing videos
 - [x] ~~Shouting into the void~~
 - [ ] Blog posts
 
-## Todo
+## Site improvements I want to add
 
 - [ ] scroll to top component
 - [ ] scroll-hint component (let user know to scroll down)
-- [ ] lightbox component (npm?)
 - [ ] modal component (npm?)
-- [ ] photo gallery component
