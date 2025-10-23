@@ -71,8 +71,8 @@ function NotFound404Page() {
                 />
               </svg>
               <div className="text-center grid gap-4">
-                <Heading level={1}>Ohno!</Heading>
-                <Text>You've made a wrong turn!</Text>
+                <Heading className="!text-[var(--text-c-lite)]" level={1}>Ohno!</Heading>
+                <Text className="!text-[var(--text-c-lite)]">You've made a wrong turn!</Text>
                 <ButtonLink href="/" variant="inverted" className="block text-center font-medium mt-10 !px-2 !py-1" >
                   Go Home&nbsp;&nbsp;&nbsp;🏠
                 </ButtonLink>
