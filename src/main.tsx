@@ -8,6 +8,7 @@ import BaseLayout from "~/layouts/BaseLayout";
 
 import BioPage from "~/pages/BioPage";
 import HomePage from "~/pages/HomePage";
+import NotFound404Page from "~/pages/404Page";
 
 import GalleryPage from "~/pages/photography";
 import JapanGallery from "~/pages/photography/JapanGallery";
@@ -36,6 +37,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
               <Route path="japan" element={<JapanGallery />} />
             </Route>
           </Route>
+          <Route path="*" element={<NotFound404Page />} />
         </Routes>
       </BaseLayout>
     </ThemeProvider>
