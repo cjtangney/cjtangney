@@ -8,6 +8,7 @@
     rgba(252, 70, 107, 1) 100%
   );
   --bg-c-default: rgb(229 231 235);
+  --bg-c-dark: rgb(33 36 40);
   --fill-c-default: #000;
   --text-c-default: #000;
   --text-c-highlight: #6612d4;
