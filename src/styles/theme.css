@@ -12,6 +12,7 @@
   --fill-c-default: #000;
   --text-c-default: #000;
   --text-c-highlight: #6612d4;
+  --text-c-lite: #fff;
   --border-c-default: var(--text-c-default);
   --tw-shadow-color: rgb(254 249 195 / 0.5);
 }
