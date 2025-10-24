@@ -1,5 +1,5 @@
 :root {
-  --lander-bg-c: linear-gradient(
+  --bg-c-rainbow-lite: linear-gradient(
     117deg,
     rgba(63, 94, 251, 1) 0%,
     rgba(89, 220, 182, 1) 20%,
@@ -7,6 +7,13 @@
     rgba(197, 189, 77, 1) 78%,
     rgba(252, 70, 107, 1) 100%
   );
+  --bg-c-rainbow-dark: linear-gradient(
+    117deg,
+    rgba(28, 56, 70, 1) 0%,
+    rgba(32, 32, 32, 1) 24%,
+    rgba(33, 18, 47, 1) 71%,
+    rgba(3, 7, 69, 1) 100%
+  );  
   --bg-c-default: rgb(229 231 235);
   --bg-c-dark: rgb(33 36 40);
   --fill-c-default: #000;
@@ -15,11 +22,13 @@
   --text-c-lite: #fff;
   --border-c-default: var(--text-c-default);
   --tw-shadow-color: rgb(254 249 195 / 0.5);
+  --lander-bg-c: var(--bg-c-rainbow-lite);
 }
 
 /** Lite is the default theme so it mostly inherits from root */
 [data-theme='lite'] {
   --lander-bg-c: inherit;
+  --lander-bg-c-inverted: var(--bg-c-rainbow-dark);
   --bg-c-default: inherit;
   --fill-c-default: inherit;
   --text-c-default: inherit;
@@ -95,13 +104,8 @@
 }
 
 [data-theme='dark'] {
-  --lander-bg-c: linear-gradient(
-    117deg,
-    rgba(28, 56, 70, 1) 0%,
-    rgba(32, 32, 32, 1) 24%,
-    rgba(33, 18, 47, 1) 71%,
-    rgba(3, 7, 69, 1) 100%
-  );
+  --lander-bg-c: var(--bg-c-rainbow-dark);
+  --lander-bg-c-inverted: var(--bg-c-rainbow-lite);
   --bg-c-default: rgb(33 36 40);
   --fill-c-default: #fff;
   --text-c-default: #fff;
