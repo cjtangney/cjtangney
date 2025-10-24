@@ -48,7 +48,7 @@ export const FakeDesktopWindow = ({
   const desktopWindowStyles = [
     'border-2 border-[var(--border-c-default)]',
     'rounded-lg overflow-hidden relative',
-    'h-[clamp(240px,_80%,_768px)] w-[clamp(320px,_85%,_1024px)]',
+    'h-[clamp(240px,_90%,_768px)] w-[clamp(320px,_95%,_1024px)]',
     'rounded-lg shadow-md shadow-c-default',
   ].join(' ');
 
@@ -63,5 +63,3 @@ export const FakeDesktopWindow = ({
     </div>
   )
 }
-
-// 
