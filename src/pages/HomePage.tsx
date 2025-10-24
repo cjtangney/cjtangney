@@ -29,7 +29,7 @@ function HomePage() {
             ].join(", ")}
             alt="Illustration of Connor Tangney"
             className="object-cover mx-auto"
-            height={215}
+            height={225}
             aspectRatio="1/1"
           />
           <div>

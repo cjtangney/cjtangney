@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router";
 import { ThemeProvider } from "~/contexts/Theme";
 
 import BaseLayout from "~/layouts/BaseLayout";
+import FullHeightLayout from "~/layouts/FullHeightLayout";
 
 import BioPage from "~/pages/BioPage";
 import HomePage from "~/pages/HomePage";
@@ -27,19 +28,33 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
     <ThemeProvider>
       <ScrollToTop />
-      <BaseLayout>
-        <Routes>
-          <Route path="/">
-            <Route index element={<HomePage />} />
-            <Route path="bio" element={<BioPage />} />
-            <Route path="photography">
-              <Route index element={<GalleryPage />} />
-              <Route path="japan" element={<JapanGallery />} />
-            </Route>
+      <Routes>
+        <Route path="/">
+          <Route index element={
+            <BaseLayout><HomePage /></BaseLayout>
+          } />
+          <Route path="bio" element={
+            <BaseLayout><BioPage /></BaseLayout>
+          } />
+          <Route path="photography">
+            <Route index element={
+              <BaseLayout>  
+                <GalleryPage />
+              </BaseLayout>
+            } />
+            <Route path="japan" element={
+              <BaseLayout>  
+                <JapanGallery />
+              </BaseLayout>
+            } />
           </Route>
-          <Route path="*" element={<NotFound404Page />} />
-        </Routes>
-      </BaseLayout>
+        </Route>
+        <Route path="*" element={
+          <FullHeightLayout>
+            <NotFound404Page />
+          </FullHeightLayout>
+      } />
+      </Routes>
     </ThemeProvider>
   </BrowserRouter>
 );

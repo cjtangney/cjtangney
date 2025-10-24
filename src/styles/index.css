@@ -12,3 +12,30 @@
     animation: animate-rainbow 15s cubic-bezier(0.47, 1.43, 0.58, -0.74) infinite;
   }
 }
+
+.bg-rainbow-inverted {
+  background: var(--lander-bg-c-inverted);
+  background-size: 550% 250%;
+
+  &.animated {
+    animation: animate-rainbow 15s cubic-bezier(0.47, 1.43, 0.58, -0.74) infinite;
+  }
+}
+
+.bg-rainbow-lite {
+  background: var(--bg-c-rainbow-lite);
+  background-size: 550% 250%;
+
+  &.animated {
+    animation: animate-rainbow 15s cubic-bezier(0.47, 1.43, 0.58, -0.74) infinite;
+  }
+}
+
+.bg-rainbow-dark {
+  background: var(--bg-c-rainbow-dark);
+  background-size: 550% 250%;
+
+  &.animated {
+    animation: animate-rainbow 15s cubic-bezier(0.47, 1.43, 0.58, -0.74) infinite;
+  }
+}
