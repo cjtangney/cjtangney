@@ -10,7 +10,7 @@ function NotFound404Page() {
     <Container
       className="h-full"
     >
-      <div className="lg:mt-20 grid relative justify-items-center h-full w-full">
+      <div className="grid relative place-items-center h-full w-full">
         <FakeDesktopWindow windowPaneStyles='bg-rainbow-inverted animated'>
           <div className="grid place-items-center gap-2">
             <svg 
