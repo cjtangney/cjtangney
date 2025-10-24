@@ -63,5 +63,3 @@ export const FakeDesktopWindow = ({
     </div>
   )
 }
-
-// 
