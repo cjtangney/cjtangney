@@ -4,42 +4,7 @@ import { useEffect, useRef, useState } from "react"
 
 type Line = { type: "in" | "out"; text: string }
 
-const NEOFETCH = `                       ###################
-           #####################################
-       #####################            ############
-     ########                                 .#######
-   ######                                         #####
-  #####                                             ####
-  ###                                             +#####
-  ### ##                                         ###  ##
- ###  ###-                                       ##  #####
-#######  #                                       #  -#######
-########  #                                     ##   #########+
-##     ## #                                     ##    ##-######
-####+   # #  -#########################+         #     #    ###
-###    .# #                                      ####  ##    ##
-###            ######################################## #   ###
- ###+  #   #+#+                --.+##########+     #### #   ##
- ###   ##  # .#+...                                   # #  ###
-  ##    # ##                      .###############-#### #  ##+
-  ###   # ##  ##################                      - #  ##
-  ###   # --                                          . #  ##
-   ##   #                   #################################
-   ###  #####################################################
-   -#####################################.           ######
-    #######                                          #####
-     ######                                           ####
-      #####
-
-connor@desktop
----------------
-OS: WebOS (this website)
-Role: Software Engineer
-Location: Boston, MA
-Shell: zsh
-Hobbies: sim racing, photography
-Experience: ~10 years
-Uptime: just now`
+const BANNER = `couchOS — connor@desktop`
 
 const HELP = `available commands:
   help        show this message
@@ -51,8 +16,7 @@ const HELP = `available commands:
   social      where to find me
   clear       clear the screen`
 
-const BIO = `Connor Tangney
-Race:  Human (Couch)
+const BIO = `Race:  Human (Couch)
 Class: Software Developer
 
 Born and raised in New England, learned and schooled in New York.
@@ -64,7 +28,7 @@ const STATS = `core stats:
   INT  90
   DEX  85
   STR  65
-  LUK  15   * yes, i am chronically unlucky.`
+  LUK  25   * yes, i am chronically unlucky.`
 
 const SKILLS = `skills (proficiency):
   JS   95     HTML  95
@@ -86,7 +50,7 @@ function run(cmd: string): string {
     case "skills":
       return SKILLS
     case "projects":
-      return "jizo, crystal-clear-components, node-matrix-grid, cjtangney — see the Projects app for details."
+      return "jizo, node-matrix-grid, cjtangney — see the Projects app for details."
     case "social":
       return "linkedin.com/in/connor-tangney-69aa8666 · github.com/ctangney-tulip"
     case "":
@@ -98,7 +62,7 @@ function run(cmd: string): string {
 
 export function TerminalApp() {
   const [lines, setLines] = useState<Line[]>([
-    { type: "out", text: NEOFETCH },
+    { type: "out", text: BANNER },
     { type: "out", text: "Type 'help' to get started." },
   ])
   const [value, setValue] = useState("")

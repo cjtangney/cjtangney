@@ -4,7 +4,7 @@ const STATS = [
   { label: "INT", value: 90, fillColor: "green" as const },
   { label: "DEX", value: 85, fillColor: "green" as const },
   { label: "STR", value: 65, fillColor: "blue" as const },
-  { label: "LUK", value: 15, fillColor: "red" as const },
+  { label: "LUK", value: 25, fillColor: "red" as const },
 ]
 
 const SKILLS = [

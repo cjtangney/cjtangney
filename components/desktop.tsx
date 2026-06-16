@@ -75,7 +75,12 @@ export function Desktop() {
         {APPS.map((app) => (
           <button
             key={app.id}
-            onClick={() => manager.open(app.id)}
+            onClick={() => {
+              const win = manager.windows.find((w) => w.appId === app.id)
+              if (!win || win.minimized) manager.open(app.id)
+              else if (manager.activeId === win.id) manager.minimize(win.id)
+              else manager.focus(win.id)
+            }}
             className="group flex w-20 flex-col items-center gap-1 rounded-lg p-1.5 text-center transition-colors hover:bg-foreground/15"
             aria-label={`Open ${app.label}`}
           >

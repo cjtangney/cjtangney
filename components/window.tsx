@@ -27,11 +27,41 @@ export function Window({ win, manager, active }: Props) {
   const app = getApp(win.appId)
   const { Component, Icon } = app
   const dragRef = useRef<{ startX: number; startY: number; winX: number; winY: number } | null>(null)
-  const resizeRef = useRef<{ startX: number; startY: number; w: number; h: number } | null>(null)
+  const resizeRef = useRef<{
+    startX: number
+    startY: number
+    w: number
+    h: number
+    axis: "x" | "y" | "xy"
+  } | null>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
   const [dragging, setDragging] = useState(false)
+  const [overflow, setOverflow] = useState({ top: false, bottom: false })
   const viewport = useViewportSize()
+
+  // Track vertical scroll position so we can fade the content edges when there's
+  // off-screen content above/below.
+  useEffect(() => {
+    const el = contentRef.current
+    if (!el) return
+    const update = () => {
+      const { scrollTop, scrollHeight, clientHeight } = el
+      setOverflow({
+        top: scrollTop > 1,
+        bottom: scrollTop + clientHeight < scrollHeight - 1,
+      })
+    }
+    update()
+    el.addEventListener("scroll", update, { passive: true })
+    const ro = new ResizeObserver(update)
+    ro.observe(el)
+    if (el.firstElementChild) ro.observe(el.firstElementChild)
+    return () => {
+      el.removeEventListener("scroll", update)
+      ro.disconnect()
+    }
+  }, [win.minimized, win.maximized, win.width, win.height])
 
   // For fit-to-content apps (e.g. About), grow the window's height to show all
   // of its content. We track the content's natural scrollHeight (independent of
@@ -50,7 +80,9 @@ export function Window({ win, manager, active }: Props) {
     if (!wrapper || !child) return
     const measure = () => {
       const content = child.offsetHeight
-      if (content === lastContentHeight.current) return
+      // Ignore 0 — that happens when the content is detached (e.g. the window is
+      // minimized), and we must not collapse the stored height to nothing.
+      if (content === 0 || content === lastContentHeight.current) return
       lastContentHeight.current = content
       // Derive the real chrome height (title bar + all borders) by comparing the
       // rendered window box to its inner content area, so the content fits with
@@ -63,7 +95,7 @@ export function Window({ win, manager, active }: Props) {
     const ro = new ResizeObserver(measure)
     ro.observe(child)
     return () => ro.disconnect()
-  }, [app.fitContent, win.maximized, win.id, win.width, resize])
+  }, [app.fitContent, win.maximized, win.minimized, win.id, win.width, resize])
 
   // Move keyboard focus into a window when it's opened/raised, so keyboard
   // users don't get left behind on the launcher.
@@ -78,6 +110,9 @@ export function Window({ win, manager, active }: Props) {
   // dragging via title bar
   useEffect(() => {
     if (!dragging) return
+    // Prevent accidental text selection across the page while dragging/resizing.
+    const prevUserSelect = document.body.style.userSelect
+    document.body.style.userSelect = "none"
     function onMove(e: PointerEvent) {
       if (dragRef.current) {
         const dx = e.clientX - dragRef.current.startX
@@ -86,13 +121,12 @@ export function Window({ win, manager, active }: Props) {
         const nextY = Math.max(0, dragRef.current.winY + dy)
         manager.move(win.id, nextX, nextY)
       } else if (resizeRef.current) {
-        const dw = e.clientX - resizeRef.current.startX
-        const dh = e.clientY - resizeRef.current.startY
-        manager.resize(
-          win.id,
-          Math.max(MIN_W, resizeRef.current.w + dw),
-          Math.max(MIN_H, resizeRef.current.h + dh),
-        )
+        const r = resizeRef.current
+        const dw = e.clientX - r.startX
+        const dh = e.clientY - r.startY
+        const width = r.axis === "y" ? r.w : Math.max(MIN_W, r.w + dw)
+        const height = r.axis === "x" ? r.h : Math.max(MIN_H, r.h + dh)
+        manager.resize(win.id, width, height)
       }
     }
     function onUp() {
@@ -103,6 +137,7 @@ export function Window({ win, manager, active }: Props) {
     window.addEventListener("pointermove", onMove)
     window.addEventListener("pointerup", onUp)
     return () => {
+      document.body.style.userSelect = prevUserSelect
       window.removeEventListener("pointermove", onMove)
       window.removeEventListener("pointerup", onUp)
     }
@@ -155,7 +190,7 @@ export function Window({ win, manager, active }: Props) {
       {/* title bar */}
       <div
         onPointerDown={(e) => {
-          if (maximized) return
+          if (e.button !== 0 || maximized) return
           manager.focus(win.id)
           dragRef.current = {
             startX: e.clientX,
@@ -211,30 +246,51 @@ export function Window({ win, manager, active }: Props) {
       </div>
 
       {/* content */}
-      <div ref={contentRef} className="min-h-0 flex-1 overflow-auto">
-        <Component />
+      <div className="relative min-h-0 flex-1">
+        <div ref={contentRef} className="h-full overflow-auto">
+          <Component />
+        </div>
+        {overflow.top && (
+          <div
+            className="pointer-events-none absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-card to-transparent"
+            aria-hidden
+          />
+        )}
+        {overflow.bottom && (
+          <div
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-card to-transparent"
+            aria-hidden
+          />
+        )}
       </div>
 
-      {/* resize handle */}
-      {!maximized && (
-        <div
-          onPointerDown={(e) => {
-            e.stopPropagation()
-            manager.focus(win.id)
-            resizeRef.current = {
-              startX: e.clientX,
-              startY: e.clientY,
-              w: dispW,
-              h: dispH,
-            }
-            setDragging(true)
-          }}
-          className="absolute bottom-0 right-0 h-4 w-4 cursor-nwse-resize"
-          aria-hidden
-        >
-          <span className="absolute bottom-1 right-1 h-2 w-2 border-b-2 border-r-2 border-muted-foreground/50" />
-        </div>
-      )}
+      {/* resize handles: right edge (X), bottom edge (Y), corner (both) */}
+      {!maximized &&
+        (["x", "y", "xy"] as const).map((axis) => (
+          <div
+            key={axis}
+            onPointerDown={(e) => {
+              if (e.button !== 0) return
+              e.stopPropagation()
+              manager.focus(win.id)
+              resizeRef.current = {
+                startX: e.clientX,
+                startY: e.clientY,
+                w: dispW,
+                h: dispH,
+                axis,
+              }
+              setDragging(true)
+            }}
+            className={cn(
+              "absolute",
+              axis === "x" && "right-0 top-9 bottom-2 w-1.5 cursor-ew-resize",
+              axis === "y" && "bottom-0 left-2 right-2 h-1.5 cursor-ns-resize",
+              axis === "xy" && "bottom-0 right-0 size-3 cursor-nwse-resize",
+            )}
+            aria-hidden
+          />
+        ))}
     </div>
   )
 }

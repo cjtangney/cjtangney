@@ -10,26 +10,26 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'couchOS',
+  title: 'couchOS — a desktop you can browse',
   description:
-    'couch\'s personal website -- a little bit about me, my work, and my hobbies.',
+    'A portfolio that behaves like a Linux desktop environment. Open apps in draggable windows, or browse the phone home screen on mobile.',
   generator: 'v0.app',
   icons: {
     icon: [
       {
-        url: '/icon/icon.png',
+        url: '/icon-light-32x32.png',
         media: '(prefers-color-scheme: light)',
       },
       {
-        url: '/icon/icon.png',
+        url: '/icon-dark-32x32.png',
         media: '(prefers-color-scheme: dark)',
       },
       {
-        url: '/icon/icon.png',
+        url: '/icon.svg',
         type: 'image/svg+xml',
       },
     ],
-    apple: '/icon/icon.png',
+    apple: '/apple-icon.png',
   },
 }
 

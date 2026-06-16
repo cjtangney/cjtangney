@@ -14,7 +14,11 @@ export function Dock({ manager }: { manager: WindowManager }) {
           return (
             <button
               key={app.id}
-              onClick={() => manager.open(app.id)}
+              onClick={() => {
+                if (!win || win.minimized) manager.open(app.id)
+                else if (manager.activeId === win.id) manager.minimize(win.id)
+                else manager.focus(win.id)
+              }}
               title={app.label}
               aria-label={`Open ${app.label}`}
               className="group relative flex flex-col items-center"
