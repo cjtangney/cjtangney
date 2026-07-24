@@ -18,9 +18,6 @@ const MIN_W = 320
 const MIN_H = 220
 /** height of the fixed TopPanel (h-9 = 36px); maximized windows sit below it */
 const TOP_BAR = 36
-/** space reserved at the bottom for the dock; windows act like they have a
- *  taskbar there and never extend below it */
-const DOCK_RESERVE = 80
 /** height of the window's own title bar (h-9) */
 const TITLE_BAR = 36
 
@@ -155,7 +152,7 @@ export function Window({ win, manager, active }: Props) {
   // the window springs back to its real size when the viewport grows again.
   const M = 8
   // The usable area is bounded by the top panel above and the dock below.
-  const bottomBound = viewport.height - DOCK_RESERVE
+  const bottomBound = viewport.height
   const maxW = Math.max(MIN_W, viewport.width - M * 2)
   const maxH = Math.max(MIN_H, bottomBound - TOP_BAR - M)
   const dispW = Math.min(win.width, maxW)
@@ -171,7 +168,7 @@ export function Window({ win, manager, active }: Props) {
       left: 0,
       top: TOP_BAR,
       width: "100%",
-      height: `calc(100% - ${TOP_BAR + DOCK_RESERVE}px)`,
+      height: `calc(100% - ${TOP_BAR}px)`,
     }
     : { left: dispX, top: dispY, width: dispW, height: dispH }
 
