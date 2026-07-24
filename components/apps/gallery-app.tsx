@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react"
 import { createPortal } from "react-dom"
 import { ChevronLeft, ChevronRight, X } from "lucide-react"
+import { ScrollToTop } from "@/components/scroll-to-top"
 
 const PHOTOS = Array.from({ length: 18 }, (_, i) => {
   const n = String(i + 1).padStart(4, "0")
@@ -36,7 +37,7 @@ export function GalleryApp() {
   return (
     <div className="p-5">
       <p className="mb-4 font-mono text-xs text-muted-foreground">
-        ~/Pictures/japan — photos from my trips to Japan
+        ~/photos/japan — photos from my trips to Japan
       </p>
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
         {PHOTOS.map((photo, i) => (
@@ -58,6 +59,7 @@ export function GalleryApp() {
           </button>
         ))}
       </div>
+      <ScrollToTop />
 
       {mounted &&
         open !== null &&

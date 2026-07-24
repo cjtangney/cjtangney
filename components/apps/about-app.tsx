@@ -35,7 +35,7 @@ export function AboutApp() {
         <div>
           <h1 className="text-xl font-semibold">Connor Tangney</h1>
           <p className="font-mono text-sm text-muted-foreground">
-            software engineer · hobby photographer
+            software engineer · hobby photographer · ski bum
           </p>
         </div>
       </div>
@@ -44,12 +44,7 @@ export function AboutApp() {
         {/* left: bio + facts */}
         <div className="flex flex-col gap-6">
           <p className="leading-relaxed text-foreground/90">
-            Born and raised in New England, learned and schooled in New York.
-            Three decades experience being a person, one decade of experience
-            slinging code. Married since 2018 to my loving partner. Enjoyer of
-            solving complicated problems. Passionate about accessibility and
-            creating usable, intuitive interfaces. Aspiring Sim Racer and hobby
-            photographer.
+            Born and raised in New England, learned and schooled in New York. Three decades experience being a person, one decade of experience slinging code. Married since 2018 to my loving partner. Father since 2026. Enjoyer of solving complicated problems. Passionate about accessibility and creating usable, intuitive interfaces. Lifelong ski bum and hobby photographer.
           </p>
 
           <div className="grid grid-cols-2 gap-3">

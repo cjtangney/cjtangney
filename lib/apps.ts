@@ -6,6 +6,7 @@ import {
   Mail,
   Images,
   Settings,
+  Route,
 } from "lucide-react"
 import { AboutApp } from "@/components/apps/about-app"
 import { ProjectsApp } from "@/components/apps/projects-app"
@@ -13,9 +14,11 @@ import { TerminalApp } from "@/components/apps/terminal-app"
 import { ContactApp } from "@/components/apps/contact-app"
 import { GalleryApp } from "@/components/apps/gallery-app"
 import { SettingsApp } from "@/components/apps/settings-app"
+import { TimelineApp } from "@/components/apps/timeline-app"
 
 export type AppId =
   | "about"
+  | "timeline"
   | "projects"
   | "terminal"
   | "contact"
@@ -31,6 +34,8 @@ export type AppDef = {
   Component: ComponentType
   /** default window size in px */
   defaultSize: { width: number; height: number }
+  maxWidth?: number
+  minWidth?: number
   /** accent hue for the icon tile */
   accent: string
   /** auto-size the window height to fit all of its content (desktop) */
@@ -45,34 +50,37 @@ export const APPS: AppDef[] = [
     Icon: User,
     Component: AboutApp,
     defaultSize: { width: 850, height: 560 },
+    minWidth: 700,
     accent: "oklch(0.62 0.21 275)",
-    fitContent: true,
   },
   {
-    id: "projects",
-    title: "Projects — ~/work",
-    label: "Projects",
-    Icon: FolderGit2,
-    Component: ProjectsApp,
-    defaultSize: { width: 680, height: 520 },
-    accent: "oklch(0.6 0.18 260)",
+    id: "timeline",
+    title: "Timeline — history",
+    label: "Timeline",
+    Icon: Route,
+    Component: TimelineApp,
+    defaultSize: { width: 650, height: 480 },
+    minWidth: 550,
+    accent: "oklch(0.66 0.17 250)",
   },
   {
     id: "gallery",
-    title: "Gallery — ~/Pictures",
+    title: "Gallery — ~/photos",
     label: "Gallery",
     Icon: Images,
     Component: GalleryApp,
     defaultSize: { width: 700, height: 520 },
+    minWidth: 350,
     accent: "oklch(0.65 0.16 230)",
   },
   {
     id: "contact",
-    title: "Contact — send mail",
+    title: "Contact — reach out",
     label: "Contact",
     Icon: Mail,
     Component: ContactApp,
-    defaultSize: { width: 520, height: 460 },
+    defaultSize: { width: 450, height: 460 },
+    minWidth: 350,
     accent: "oklch(0.68 0.16 300)",
   },
   {
@@ -82,6 +90,7 @@ export const APPS: AppDef[] = [
     Icon: TerminalSquare,
     Component: TerminalApp,
     defaultSize: { width: 750, height: 528 },
+    minWidth: 350,
     accent: "oklch(0.7 0.16 140)",
   },
   {
@@ -90,7 +99,8 @@ export const APPS: AppDef[] = [
     label: "Settings",
     Icon: Settings,
     Component: SettingsApp,
-    defaultSize: { width: 560, height: 420 },
+    defaultSize: { width: 500, height: 420 },
+    minWidth: 350,
     accent: "oklch(0.7 0.02 285)",
   },
 ]

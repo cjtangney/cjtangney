@@ -57,6 +57,8 @@ export function Desktop() {
     return <MobileOS manager={manager} />
   }
 
+  console.log(manager.windows);
+
   return (
     <main className="relative h-dvh w-full overflow-hidden bg-background">
       <div className="wallpaper absolute inset-0" aria-hidden />
@@ -108,8 +110,6 @@ export function Desktop() {
           active={manager.activeId === win.id}
         />
       ))}
-
-      <Dock manager={manager} />
     </main>
   )
 }

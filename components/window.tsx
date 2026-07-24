@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils"
 import { getApp } from "@/lib/apps"
 import { useViewportSize } from "@/hooks/use-viewport-size"
 import type { WindowState, WindowManager } from "@/hooks/use-window-manager"
+import { StyledString } from "next/dist/build/swc/types"
 
 type Props = {
   win: WindowState
@@ -38,6 +39,7 @@ export function Window({ win, manager, active }: Props) {
   const contentRef = useRef<HTMLDivElement>(null)
   const [dragging, setDragging] = useState(false)
   const [overflow, setOverflow] = useState({ top: false, bottom: false })
+  const [minWidth, setMinwidth] = useState('');
   const viewport = useViewportSize()
 
   // Track vertical scroll position so we can fade the content edges when there's
@@ -166,13 +168,17 @@ export function Window({ win, manager, active }: Props) {
 
   const geometry = maximized
     ? {
-        left: 0,
-        top: TOP_BAR,
-        width: "100%",
-        height: `calc(100% - ${TOP_BAR + DOCK_RESERVE}px)`,
-      }
+      left: 0,
+      top: TOP_BAR,
+      width: "100%",
+      height: `calc(100% - ${TOP_BAR + DOCK_RESERVE}px)`,
+    }
     : { left: dispX, top: dispY, width: dispW, height: dispH }
 
+  useEffect(() => {
+    win.minWidth && setMinwidth(`md:min-w-[var(--min-width)]`);
+  })
+  
   return (
     <div
       ref={containerRef}
@@ -182,10 +188,15 @@ export function Window({ win, manager, active }: Props) {
       onPointerDown={() => manager.focus(win.id)}
       className={cn(
         "absolute flex flex-col overflow-hidden border border-border bg-card/95 shadow-2xl outline-none backdrop-blur-xl",
+        minWidth,
         maximized ? "rounded-none" : "rounded-xl",
         active ? "ring-1 ring-primary/40" : "opacity-[0.98]",
       )}
-      style={{ ...geometry, zIndex: win.z }}
+      style={{
+        ...geometry,
+        zIndex: win.z,
+        '--min-width': `${win.minWidth}px`,
+      } as React.CSSProperties | Record<string, string>}
     >
       {/* title bar */}
       <div
@@ -247,7 +258,7 @@ export function Window({ win, manager, active }: Props) {
 
       {/* content */}
       <div className="relative min-h-0 flex-1">
-        <div ref={contentRef} className="h-full overflow-auto">
+        <div ref={contentRef} className="h-full overflow-auto scroll-pb-6">
           <Component />
         </div>
         {overflow.top && (

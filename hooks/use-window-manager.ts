@@ -11,6 +11,7 @@ export type WindowState = {
   y: number
   width: number
   height: number
+  minWidth?: number
   z: number
   minimized: boolean
   maximized: boolean
@@ -61,6 +62,7 @@ export function useWindowManager() {
         const vw = typeof window !== "undefined" ? window.innerWidth : 1200
         const width = Math.min(app.defaultSize.width, vw - 40)
         const height = app.defaultSize.height
+        const minWidth = app.minWidth;
         // cascade new windows
         const offset = (prev.length % 6) * 28
         const baseX = 120 + offset
@@ -74,6 +76,7 @@ export function useWindowManager() {
             y: baseY,
             width,
             height,
+            minWidth,
             z: ++topZ.current,
             minimized: false,
             maximized: false,

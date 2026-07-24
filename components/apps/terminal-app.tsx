@@ -12,7 +12,6 @@ const HELP = `available commands:
   bio         backstory + character sheet
   stats       core stats
   skills      proficiency breakdown
-  projects    list featured repos
   social      where to find me
   clear       clear the screen`
 
@@ -21,7 +20,7 @@ Class: Software Developer
 
 Born and raised in New England, learned and schooled in New York.
 Three decades of being a person, one decade slinging code. Passionate
-about accessibility and intuitive interfaces. Aspiring sim racer and
+about accessibility and intuitive interfaces. Lifelong ski bum and
 hobby photographer.`
 
 const STATS = `core stats:
@@ -49,8 +48,6 @@ function run(cmd: string): string {
       return STATS
     case "skills":
       return SKILLS
-    case "projects":
-      return "jizo, node-matrix-grid, cjtangney — see the Projects app for details."
     case "social":
       return "linkedin.com/in/connor-tangney-69aa8666 · github.com/ctangney-tulip"
     case "":
