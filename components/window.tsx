@@ -258,7 +258,7 @@ export function Window({ win, manager, active }: Props) {
 
       {/* content */}
       <div className="relative min-h-0 flex-1">
-        <div ref={contentRef} className="h-full overflow-auto scroll-pb-6">
+        <div ref={contentRef} className="h-full overflow-auto scroll-pb-6 scroll-pt-2">
           <Component />
         </div>
         {overflow.top && (

@@ -247,7 +247,7 @@ export function TimelineApp() {
         if (last) setActiveYear(last.year)
         return
       }
-      const line = root.getBoundingClientRect().top + 88
+      const line = root.getBoundingClientRect().top + (root.offsetHeight / 2);
       let current = milestones[0]?.year ?? null
       for (const m of milestones) {
         const el = itemRefs.current.get(m.id)
@@ -274,10 +274,17 @@ export function TimelineApp() {
       const target = milestones.filter((m) => m.year === year)
       if (!target || !target.length) return
       const el = itemRefs.current.get(target[target.length - 1].id)
-      el?.scrollIntoView({ behavior: "smooth", block: "end" })
-      setActiveYear(year)
+      const elYear = milestones[milestones.indexOf(target[target.length - 1])].year;
+      el?.scrollIntoView({ 
+        behavior: "smooth", 
+        block: activeYear ? 
+          elYear > activeYear ? 
+            "start" : "end" 
+        : "start"
+      });
+      setActiveYear(elYear);
     },
-    [milestones],
+    [milestones, activeYear],
   )
 
   return (
