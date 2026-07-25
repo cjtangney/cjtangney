@@ -39,6 +39,12 @@ export function Window({ win, manager, active }: Props) {
   const [minWidth, setMinwidth] = useState('');
   const viewport = useViewportSize()
 
+  useEffect(() => {
+    if (win.minWidth) {
+      setMinwidth(`md:min-w-[var(--min-width)]`);
+    }
+  }, [win.minWidth])
+
   // Track vertical scroll position so we can fade the content edges when there's
   // off-screen content above/below.
   useEffect(() => {
@@ -171,10 +177,6 @@ export function Window({ win, manager, active }: Props) {
       height: `calc(100% - ${TOP_BAR}px)`,
     }
     : { left: dispX, top: dispY, width: dispW, height: dispH }
-
-  useEffect(() => {
-    win.minWidth && setMinwidth(`md:min-w-[var(--min-width)]`);
-  })
   
   return (
     <div
